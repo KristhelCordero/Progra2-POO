@@ -15,10 +15,16 @@ public class Configurar extends javax.swing.JFrame {
      */
     public Configurar() {
         initComponents();
-        groupTimer.add(cronometro);
-        groupTimer.add(timer);
-        groupDificultad.add(facil);
+        groupTimer.add(jRBtimer);
+        groupTimer.add(jRBcronometro);
+        groupTimer.add(jRBNO);
+        groupDificultad.add(jRBfacil);
         groupDificultad.add(jRBmedio);
+        groupDificultad.add(jRBDificil);
+        groupSonido.add(jRBsi);
+        groupSonido.add(jRBno);
+        groupPosicion.add(jRBDerecha);
+        groupPosicion.add(jRBIzquierda);
     }
 
     /**
@@ -32,27 +38,29 @@ public class Configurar extends javax.swing.JFrame {
 
         groupTimer = new javax.swing.ButtonGroup();
         groupDificultad = new javax.swing.ButtonGroup();
+        groupSonido = new javax.swing.ButtonGroup();
+        groupPosicion = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        facil = new javax.swing.JRadioButton();
+        jRBfacil = new javax.swing.JRadioButton();
         jRBmedio = new javax.swing.JRadioButton();
-        timer = new javax.swing.JRadioButton();
-        cronometro = new javax.swing.JRadioButton();
+        jRBcronometro = new javax.swing.JRadioButton();
+        jRBtimer = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jButtonRegresar = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRBDificil = new javax.swing.JRadioButton();
+        jRBsi = new javax.swing.JRadioButton();
+        jRBno = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        cronometro1 = new javax.swing.JRadioButton();
+        jRBNO = new javax.swing.JRadioButton();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        jRBDerecha = new javax.swing.JRadioButton();
+        jRBIzquierda = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +74,7 @@ public class Configurar extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CONFIGURAR");
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/kenoughChiquito.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -74,29 +83,29 @@ public class Configurar extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 500));
 
         jPanel3.setBackground(new java.awt.Color(227, 239, 221));
 
-        facil.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        facil.setText("Fácil");
+        jRBfacil.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBfacil.setText("Fácil");
 
         jRBmedio.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRBmedio.setText("Medio");
@@ -107,11 +116,11 @@ public class Configurar extends javax.swing.JFrame {
             }
         });
 
-        timer.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        timer.setText("Cronómetro");
+        jRBcronometro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBcronometro.setText("Cronómetro");
 
-        cronometro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cronometro.setText("Timer");
+        jRBtimer.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBtimer.setText("Timer");
 
         jButton1.setBackground(new java.awt.Color(76, 96, 65));
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -135,14 +144,14 @@ public class Configurar extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton1.setText("Difícil");
+        jRBDificil.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBDificil.setText("Difícil");
 
-        jRadioButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton2.setText("Si");
+        jRBsi.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBsi.setText("Si");
 
-        jRadioButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton3.setText("No");
+        jRBno.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBno.setText("No");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Sonido final:");
@@ -153,17 +162,17 @@ public class Configurar extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setText("Reloj:");
 
-        cronometro1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cronometro1.setText("No");
+        jRBNO.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBNO.setText("No");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Posición:");
 
-        jRadioButton4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton4.setText("Derecha");
+        jRBDerecha.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBDerecha.setText("Derecha");
 
-        jRadioButton5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jRadioButton5.setText("Izquierda");
+        jRBIzquierda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jRBIzquierda.setText("Izquierda");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -174,17 +183,17 @@ public class Configurar extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
+                            .addComponent(jRBDificil)
                             .addComponent(jRBmedio)
-                            .addComponent(facil))
+                            .addComponent(jRBfacil))
                         .addGap(108, 108, 108))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton3)))
+                                    .addComponent(jRBsi)
+                                    .addComponent(jRBno)))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(86, 86, 86)))
@@ -194,17 +203,17 @@ public class Configurar extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(timer)
-                                    .addComponent(cronometro)
-                                    .addComponent(cronometro1)))
+                                    .addComponent(jRBcronometro)
+                                    .addComponent(jRBtimer)
+                                    .addComponent(jRBNO)))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton5))
+                            .addComponent(jRBDerecha)
+                            .addComponent(jRBIzquierda))
                         .addGap(94, 94, 94)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -222,33 +231,33 @@ public class Configurar extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(timer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jRBcronometro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cronometro)
+                .addComponent(jRBtimer)
                 .addGap(18, 18, 18)
-                .addComponent(cronometro1)
+                .addComponent(jRBNO)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(jRBDerecha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(jRBIzquierda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
-                .addComponent(facil)
+                .addComponent(jRBfacil)
                 .addGap(18, 18, 18)
                 .addComponent(jRBmedio)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(jRBDificil)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(jRBsi)
                 .addGap(12, 12, 12)
-                .addComponent(jRadioButton3)
+                .addComponent(jRBno)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -318,10 +327,9 @@ public class Configurar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton cronometro;
-    private javax.swing.JRadioButton cronometro1;
-    private javax.swing.JRadioButton facil;
     private javax.swing.ButtonGroup groupDificultad;
+    private javax.swing.ButtonGroup groupPosicion;
+    private javax.swing.ButtonGroup groupSonido;
     private javax.swing.ButtonGroup groupTimer;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegresar;
@@ -334,12 +342,15 @@ public class Configurar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRBDerecha;
+    private javax.swing.JRadioButton jRBDificil;
+    private javax.swing.JRadioButton jRBIzquierda;
+    private javax.swing.JRadioButton jRBNO;
+    private javax.swing.JRadioButton jRBcronometro;
+    private javax.swing.JRadioButton jRBfacil;
     private javax.swing.JRadioButton jRBmedio;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton timer;
+    private javax.swing.JRadioButton jRBno;
+    private javax.swing.JRadioButton jRBsi;
+    private javax.swing.JRadioButton jRBtimer;
     // End of variables declaration//GEN-END:variables
 }
