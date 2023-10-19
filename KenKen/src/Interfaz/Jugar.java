@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interfaz;
 
 import java.awt.Image;
@@ -21,17 +18,13 @@ public class Jugar extends javax.swing.JFrame {
     public Jugar() {
         initComponents();
         this.setLocationRelativeTo(this);
-        if(1==1){
-            setImageLabel(jLabel1,"scr/images/kenough.png");
-        }else{
-            setImageLabel(jLabel1,"scr/images/kenken.png");
-        }
+        setImageLabel("scr/imagenes/kenough.png");
     }
     
-    private void setImageLabel(JLabel nombreLabel, String root){
+    public void setImageLabel(String root){
         ImageIcon imagen= new ImageIcon(root);
-        Icon icono= new ImageIcon(imagen.getImage().getScaledInstance(nombreLabel.getWidth(), nombreLabel.getHeight(), Image.SCALE_DEFAULT));
-        nombreLabel.setIcon(icono);
+        Icon icono= new ImageIcon(imagen.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_DEFAULT));
+        jLabel1.setIcon(icono);
         this.repaint();
     }
     /**

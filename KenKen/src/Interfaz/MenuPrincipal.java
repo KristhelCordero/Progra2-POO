@@ -32,7 +32,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonJugar = new javax.swing.JButton();
         jButtonConfigurar = new javax.swing.JButton();
         jButtonAyuda = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -51,10 +51,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("KEN KEN ");
 
-        jButton1.setBackground(new java.awt.Color(76, 96, 65));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Jugar");
+        jButtonJugar.setBackground(new java.awt.Color(76, 96, 65));
+        jButtonJugar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonJugar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonJugar.setText("Jugar");
+        jButtonJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonJugarActionPerformed(evt);
+            }
+        });
 
         jButtonConfigurar.setBackground(new java.awt.Color(76, 96, 65));
         jButtonConfigurar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -100,7 +105,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonAyuda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                     .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
                 .addContainerGap(135, Short.MAX_VALUE))
@@ -115,7 +120,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jLabel2)
                 .addGap(50, 50, 50)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(jButtonConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
@@ -163,6 +168,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "AYUDAAAAAAA (Inserte mensaje de generacion de PDF)");
     }//GEN-LAST:event_jButtonAyudaActionPerformed
 
+    private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed
+        Jugar juego= new Jugar();
+        //juego.setImageLabel("scr/imagenes/kenough.png");
+        juego.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonJugarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -199,10 +211,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonAyuda;
     private javax.swing.JButton jButtonConfigurar;
+    private javax.swing.JButton jButtonJugar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
