@@ -15,6 +15,7 @@ public class Configurar extends javax.swing.JFrame {
      */
     public Configurar() {
         initComponents();
+        this.setLocationRelativeTo(this);
         groupTimer.add(jRBtimer);
         groupTimer.add(jRBcronometro);
         groupTimer.add(jRBNO);

@@ -15,6 +15,7 @@ public class AcercaDe extends javax.swing.JFrame {
      */
     public AcercaDe() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     /**
