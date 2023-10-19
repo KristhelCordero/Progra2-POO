@@ -4,6 +4,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author krisc
@@ -31,7 +33,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButtonConfigurar = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonAyuda = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -63,10 +65,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(76, 96, 65));
-        jButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Ayuda");
+        jButtonAyuda.setBackground(new java.awt.Color(76, 96, 65));
+        jButtonAyuda.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonAyuda.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAyuda.setText("Ayuda");
+        jButtonAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAyudaActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(76, 96, 65));
         jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -90,14 +97,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAyuda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                     .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(39, 39, 39))
         );
@@ -111,7 +118,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(62, 62, 62)
                 .addComponent(jButtonConfigurar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
@@ -151,6 +158,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void jButtonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAyudaActionPerformed
+        JOptionPane.showMessageDialog(null, "AYUDAAAAAAA (Inserte mensaje de generacion de PDF)");
+    }//GEN-LAST:event_jButtonAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,8 +199,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAyuda;
     private javax.swing.JButton jButtonConfigurar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
