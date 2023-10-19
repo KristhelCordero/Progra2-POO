@@ -18,7 +18,12 @@ public class Jugar extends javax.swing.JFrame {
     public Jugar() {
         initComponents();
         this.setLocationRelativeTo(this);
-        setImageLabel("scr/imagenes/kenough.png");
+        if (1==1){
+            this.setImageLabel("src/imagenes/kenough.png");
+        }else{
+            this.setImageLabel("src/imagenes/kenough.png");
+        }
+        
     }
     
     public void setImageLabel(String root){
