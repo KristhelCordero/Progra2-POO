@@ -50,7 +50,7 @@ public class Configurar extends javax.swing.JFrame {
         jRBmedio = new javax.swing.JRadioButton();
         jRBcronometro = new javax.swing.JRadioButton();
         jRBtimer = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonAceptar = new javax.swing.JButton();
         jButtonRegresar = new javax.swing.JButton();
         jRBDificil = new javax.swing.JRadioButton();
         jRBsi = new javax.swing.JRadioButton();
@@ -123,14 +123,14 @@ public class Configurar extends javax.swing.JFrame {
         jRBtimer.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jRBtimer.setText("Timer");
 
-        jButton1.setBackground(new java.awt.Color(76, 96, 65));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Aceptar");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAceptar.setBackground(new java.awt.Color(76, 96, 65));
+        jButtonAceptar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButtonAceptar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAceptarActionPerformed(evt);
             }
         });
 
@@ -208,7 +208,7 @@ public class Configurar extends javax.swing.JFrame {
                                     .addComponent(jRBtimer)
                                     .addComponent(jRBNO)))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -244,7 +244,7 @@ public class Configurar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jRBIzquierda)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
@@ -282,9 +282,9 @@ public class Configurar extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jRBmedioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
         MenuPrincipal regresar=new MenuPrincipal();
@@ -332,7 +332,7 @@ public class Configurar extends javax.swing.JFrame {
     private javax.swing.ButtonGroup groupPosicion;
     private javax.swing.ButtonGroup groupSonido;
     private javax.swing.ButtonGroup groupTimer;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
