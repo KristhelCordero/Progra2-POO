@@ -1,0 +1,16 @@
+<KenKen>
+    <partida>
+        <codigo>E-1_in</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
+        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
+    </partida>
+    <partida>
+        <codigo>E-01_sol</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
+        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
+    </partida>
+</KenKen>
