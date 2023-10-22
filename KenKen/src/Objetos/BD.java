@@ -26,6 +26,11 @@ public class BD {
         }
         return listaDificultad;
     }
+    
+    
+    public void extraerXMLListaKenKen(){
+        String dirXMl;
+    }
 
     
 }
