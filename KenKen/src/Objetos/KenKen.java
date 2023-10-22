@@ -14,14 +14,16 @@ import java.util.List;
 public class KenKen {
     String nombre;
     int dificultad;
-    String rutaImagen; //ruta a la imagen del Ken Ken
+    //String rutaImagen; //ruta a la imagen del Ken Ken
     List<List<Integer>> solucion= new ArrayList<>();
 
-    public KenKen(String nombre, int dificultad, String rutaImagen) {
+    public KenKen(String nombre, int dificultad,List<List<Integer>> solucion){
         this.nombre = nombre;
         this.dificultad = dificultad;
-        this.rutaImagen = rutaImagen;
+        this.solucion = solucion;
     }
+    
+
 
 
     
