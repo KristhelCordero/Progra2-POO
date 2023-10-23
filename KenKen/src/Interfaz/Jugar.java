@@ -18,10 +18,10 @@ public class Jugar extends javax.swing.JFrame {
     public Jugar() {
         initComponents();
         this.setLocationRelativeTo(this);
-        if (1==1){ //funcionaaaaaaaaaaaaa
-            this.setImageLabel("src/imagenes/kenough.png");
+        if (2==1){ //funcionaaaaaaaaaaaaa
+            this.setImageLabel("src/imagenes/E-1_in.png");
         }else{
-            this.setImageLabel("src/imagenes/kenken.png");
+            this.setImageLabel("src/imagenes/E-2_in.png");
         }
     }
     
@@ -100,8 +100,6 @@ public class Jugar extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setMaximumSize(new java.awt.Dimension(64, 64));
-        jButton2.setMinimumSize(new java.awt.Dimension(64, 64));
         jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/3.png"))); // NOI18N
@@ -202,6 +200,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonTerminarJuego.setText("Terminar Juego");
         jButtonTerminarJuego.setBorder(null);
         jButtonTerminarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonTerminarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTerminarJuegoActionPerformed(evt);
+            }
+        });
 
         jButtonValidarJuego.setBackground(new java.awt.Color(190, 211, 179));
         jButtonValidarJuego.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -323,6 +326,12 @@ public class Jugar extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
+        MenuPrincipal inicio = new MenuPrincipal();
+        inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
 
     /**
      * @param args the command line arguments
