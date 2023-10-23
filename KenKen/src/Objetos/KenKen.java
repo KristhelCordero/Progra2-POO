@@ -17,11 +17,41 @@ public class KenKen {
     //String rutaImagen; //ruta a la imagen del Ken Ken
     List<List<Integer>> solucion= new ArrayList<>();
 
+    public KenKen() {
+    }
+    
     public KenKen(String nombre, int dificultad,List<List<Integer>> solucion){
         this.nombre = nombre;
         this.dificultad = dificultad;
         this.solucion = solucion;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getDificultad() {
+        return dificultad;
+    }
+
+    public void setDificultad(int dificultad) {
+        this.dificultad = dificultad;
+    }
+
+    public List<List<Integer>> getSolucion() {
+        return solucion;
+    }
+
+    public void setSolucion(List<List<Integer>> solucion) {
+        this.solucion = solucion;
+    }
+    
+    
+
     
 
 

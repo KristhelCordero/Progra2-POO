@@ -76,13 +76,23 @@ public class BD {
                         //System.out.println(hijo.getNodeName());//partida solucion partida
                         if(hijo.getNodeType()==Node.ELEMENT_NODE){
                             if (hijo.getNodeName()=="solucion"){
-                                
+                                KenKen kenken= new KenKen();
                                 Element eHijo = (Element) hijo;
                                 NodeList nietos= eHijo.getChildNodes();
                                 for(int k=0; k<nietos.getLength();k++){
                                     Node nieto = nietos.item(k);                  
                                     if(nieto.getNodeType()==Node.ELEMENT_NODE){
-                                        System.out.println(nieto.getNodeName());
+                                        if(nieto.getNodeName()=="codigo"){
+                                            kenken.setNombre(nieto.getTextContent());
+                                        }
+                                        if(nieto.getNodeName()=="nivelDificultad"){
+                                            kenken.setDificultad(pasarStringDificultadAInt(nieto.getTextContent()));
+                                            
+                                        }
+                                        if(nieto.getNodeName()=="celda"){
+                                            
+                                        }
+                                        
                                     }
                                 }
 
