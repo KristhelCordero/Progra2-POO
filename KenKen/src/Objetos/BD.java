@@ -62,6 +62,7 @@ public class BD {
         for(int k=0; k<nietos.getLength();k++){
             Node nieto = nietos.item(k);                  
             if(nieto.getNodeType()==Node.ELEMENT_NODE){
+                System.out.println("Se evalua el nodo"+nieto.getNodeName());
                 if("codigo".equals(nieto.getNodeName())){
                     kenken.setNombre(nieto.getTextContent());
                 }
@@ -71,8 +72,8 @@ public class BD {
                                     nieto.getTextContent()));
                 }
                 if("celda".equals(nieto.getNodeName())){
-                    kenken.insertarValorSolucion(
-                            nieto.getTextContent());
+                    System.out.println(nieto.getTextContent());
+                    kenken.insertarValorSolucion(nieto.getTextContent());
                 }
 
             }
@@ -101,9 +102,9 @@ public class BD {
                         if(hijo.getNodeType()==Node.ELEMENT_NODE){
                             if ("solucion".equals(hijo.getNodeName())){
                                 Element eHijo = (Element) hijo;
-                                
+                                System.out.println("se convierte nodo en kenken");
                                 listaKenKen.add(convertirNodoEnKenKen(eHijo));
-
+                                System.out.println("pasa la funcion");
                             }
                         }
                     }
@@ -115,6 +116,13 @@ public class BD {
             }
         
     }
+    
+public void imprimirListaKenKen(){
+    System.out.println("llega");
+    for(KenKen kenken: listaKenKen){
+        kenken.imprimir();
+    }
+}
 
         
 }

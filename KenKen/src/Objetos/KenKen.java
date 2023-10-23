@@ -43,16 +43,43 @@ public class KenKen {
     public void setSolucion(int[][] solucion) {
         this.solucion = solucion;
     }
+    
+    public void imprimir(){
+        System.out.println("Nombre:" +nombre+
+                "\nDificultad:"+dificultad+
+                        "\nSolucion:\n");
+        String mensaje="";
+        for (int i=0;i<6;i++){
+            for(int j=0; j<6;j++){
+                mensaje+=Integer.toString(solucion[i][j])+"     ";
+            }
+            mensaje+="\n";
+        }
+        System.out.println(mensaje);
+    }
 
 
             
     public void insertarValorSolucion(String celda){
+        System.out.println(celda);
         String[] partes = celda.split("[,()]");
+        System.out.println("Se hace el split");
+        System.out.println(partes.length);
+        System.out.println("e"+partes[0].trim());
+        System.out.println("hhh");
+        
         int valor = Integer.parseInt(partes[0].trim());
-        int fila = Integer.parseInt(partes[1].trim());
-        int columna = Integer.parseInt(partes[2].trim());      
+        System.out.println(partes[1].trim());
+        int fila = Integer.parseInt(partes[1].trim());        
+        System.out.println(partes[2].trim());
+        int columna = Integer.parseInt(partes[2].trim());
+        System.out.println("no hay problema");
+        System.out.println(valor+"\n"+fila+"\n"+columna);
+
         solucion[fila][columna]=valor;
     }
+    
+    
 
     
 

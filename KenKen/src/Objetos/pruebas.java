@@ -17,6 +17,7 @@ public class pruebas {
         BD bd= new BD();
         bd.extraerXMLListaKenKen();
         System.out.println("eoeo");
+        bd.imprimirListaKenKen();
     }
     
 }
