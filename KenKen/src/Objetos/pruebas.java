@@ -16,6 +16,7 @@ public class pruebas {
     public static void main(String[] args) {
         BD bd= new BD();
         bd.extraerXMLListaKenKen();
+        System.out.println("eoeo");
     }
     
 }

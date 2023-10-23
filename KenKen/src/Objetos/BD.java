@@ -62,17 +62,32 @@ public class BD {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document documento = builder.parse(new File("kenken.xml"));
+            
             NodeList listaPartidas = documento.getElementsByTagName("KenKen");
             for (int i=0; i < listaPartidas.getLength() ; i++){
-                Node nodo = listaPartidas.item(i);
-                if(nodo.getNodeType()==Node.ELEMENT_NODE){
-                    Element e = (Element) nodo;
-                    NodeList hijos = e.getChildNodes();
+                Node nodoPadre = listaPartidas.item(i);
+                System.out.println(nodoPadre.getNodeName());//Ken Ken
+                if(nodoPadre.getNodeType()==Node.ELEMENT_NODE){
+                    
+                    Element ePadre = (Element) nodoPadre;
+                    NodeList hijos = ePadre.getChildNodes();
                     for (int j=0; j<hijos.getLength(); j++){
                         Node hijo = hijos.item(j);
+                        //System.out.println(hijo.getNodeName());//partida solucion partida
                         if(hijo.getNodeType()==Node.ELEMENT_NODE){
-                            Element eHijo = (Element) hijo;
-                            System.out.println(hijo.getNodeName()+" "+hijo.getTextContent());
+                            if (hijo.getNodeName()=="solucion"){
+                                
+                                Element eHijo = (Element) hijo;
+                                NodeList nietos= eHijo.getChildNodes();
+                                for(int k=0; k<nietos.getLength();k++){
+                                    Node nieto = nietos.item(k);                  
+                                    if(nieto.getNodeType()==Node.ELEMENT_NODE){
+                                        System.out.println(nieto.getNodeName());
+                                    }
+                                }
+
+                            }
+                            //System.out.println(hijo.getNodeName()+" "+hijo.getTextContent());
                         }
                     }
                 }
