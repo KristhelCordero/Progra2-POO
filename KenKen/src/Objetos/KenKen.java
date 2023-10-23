@@ -15,15 +15,9 @@ public class KenKen {
     String nombre;
     int dificultad;
     //String rutaImagen; //ruta a la imagen del Ken Ken
-    List<List<Integer>> solucion= new ArrayList<>();
+    int[][]solucion = new int[6][6];
 
     public KenKen() {
-    }
-    
-    public KenKen(String nombre, int dificultad,List<List<Integer>> solucion){
-        this.nombre = nombre;
-        this.dificultad = dificultad;
-        this.solucion = solucion;
     }
 
     public String getNombre() {
@@ -42,14 +36,24 @@ public class KenKen {
         this.dificultad = dificultad;
     }
 
-    public List<List<Integer>> getSolucion() {
+    public int[][] getSolucion() {
         return solucion;
     }
 
-    public void setSolucion(List<List<Integer>> solucion) {
+    public void setSolucion(int[][] solucion) {
         this.solucion = solucion;
     }
-    
+
+
+            
+    public void insertarValorSolucion(String celda){
+        String[] partes = celda.split("[,()]");
+        int valor = Integer.parseInt(partes[0].trim());
+        int fila = Integer.parseInt(partes[1].trim());
+        int columna = Integer.parseInt(partes[2].trim());      
+        solucion[fila][columna]=valor;
+    }
+
     
 
     

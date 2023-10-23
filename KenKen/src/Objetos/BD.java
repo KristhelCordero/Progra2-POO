@@ -11,7 +11,6 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -55,7 +54,32 @@ public class BD {
     }
     
     
+    //KENKEN
     
+    public KenKen convertirNodoEnKenKen(Element eHijo){
+        KenKen kenken= new KenKen();
+        NodeList nietos= eHijo.getChildNodes();
+        for(int k=0; k<nietos.getLength();k++){
+            Node nieto = nietos.item(k);                  
+            if(nieto.getNodeType()==Node.ELEMENT_NODE){
+                if("codigo".equals(nieto.getNodeName())){
+                    kenken.setNombre(nieto.getTextContent());
+                }
+                if("nivelDificultad".equals(nieto.getNodeName())){
+                    kenken.setDificultad(
+                            Funciones.pasarStringDificultadAInt(
+                                    nieto.getTextContent()));
+                }
+                if("celda".equals(nieto.getNodeName())){
+                    kenken.insertarValorSolucion(
+                            nieto.getTextContent());
+                }
+
+            }
+        }
+        return kenken;
+        
+    }
     public void extraerXMLListaKenKen(){
         //String dirXMl=KenKen\kenken.xml;
         try{
@@ -75,29 +99,12 @@ public class BD {
                         Node hijo = hijos.item(j);
                         //System.out.println(hijo.getNodeName());//partida solucion partida
                         if(hijo.getNodeType()==Node.ELEMENT_NODE){
-                            if (hijo.getNodeName()=="solucion"){
-                                KenKen kenken= new KenKen();
+                            if ("solucion".equals(hijo.getNodeName())){
                                 Element eHijo = (Element) hijo;
-                                NodeList nietos= eHijo.getChildNodes();
-                                for(int k=0; k<nietos.getLength();k++){
-                                    Node nieto = nietos.item(k);                  
-                                    if(nieto.getNodeType()==Node.ELEMENT_NODE){
-                                        if(nieto.getNodeName()=="codigo"){
-                                            kenken.setNombre(nieto.getTextContent());
-                                        }
-                                        if(nieto.getNodeName()=="nivelDificultad"){
-                                            kenken.setDificultad(pasarStringDificultadAInt(nieto.getTextContent()));
-                                            
-                                        }
-                                        if(nieto.getNodeName()=="celda"){
-                                            
-                                        }
-                                        
-                                    }
-                                }
+                                
+                                listaKenKen.add(convertirNodoEnKenKen(eHijo));
 
                             }
-                            //System.out.println(hijo.getNodeName()+" "+hijo.getTextContent());
                         }
                     }
                 }
