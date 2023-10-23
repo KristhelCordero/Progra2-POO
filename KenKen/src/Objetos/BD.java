@@ -4,8 +4,19 @@
  */
 package Objetos;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 
 
@@ -26,11 +37,52 @@ public class BD {
         }
         return listaDificultad;
     }
+
+    public Configuracion getConfiguracion() {
+        return configuracion;
+    }
+
+    public void setConfiguracion(Configuracion configuracion) {
+        this.configuracion = configuracion;
+    }
+
+    public List<KenKen> getListaKenKen() {
+        return listaKenKen;
+    }
+
+    public void setListaKenKen(List<KenKen> listaKenKen) {
+        this.listaKenKen = listaKenKen;
+    }
+    
     
     
     public void extraerXMLListaKenKen(){
-        String dirXMl;
+        //String dirXMl=KenKen\kenken.xml;
+        try{
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document documento = builder.parse(new File("kenken.xml"));
+            NodeList listaPartidas = documento.getElementsByTagName("KenKen");
+            for (int i=0; i < listaPartidas.getLength() ; i++){
+                Node nodo = listaPartidas.item(i);
+                if(nodo.getNodeType()==Node.ELEMENT_NODE){
+                    Element e = (Element) nodo;
+                    NodeList hijos = e.getChildNodes();
+                    for (int j=0; j<hijos.getLength(); j++){
+                        Node hijo = hijos.item(j);
+                        if(hijo.getNodeType()==Node.ELEMENT_NODE){
+                            Element eHijo = (Element) hijo;
+                            System.out.println(hijo.getNodeName()+" "+hijo.getTextContent());
+                        }
+                    }
+                }
+                
+            }
+            }catch(ParserConfigurationException | SAXException | IOException ex){
+                System.out.println("No se pudo leer el XML");
+            }
+        
     }
 
-    
+        
 }
