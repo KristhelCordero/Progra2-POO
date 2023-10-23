@@ -21,6 +21,7 @@
     </partida>
     <solucion>
         <codigo>E-1_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
@@ -80,6 +81,7 @@
     </partida>
     <solucion>
         <codigo>E-2_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>5, (1,2)</celda>
         <celda>6, (1,3)</celda>
@@ -142,6 +144,7 @@
     </partida>
     <solucion>
         <codigo>E-3_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>5, (1,1)</celda>
         <celda>4, (1,2)</celda>
         <celda>1, (1,3)</celda>
@@ -182,7 +185,7 @@
     
     <partida>
         <codigo>H-1_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
+        <nivelDificultad>Medio</nivelDificultad>
         <jaula>5, -, (1,1), (2,1)</jaula>
         <jaula>8, +, (3,1), (4,1), (3,2)</jaula>
         <jaula>72, x, (5,1), (6,1), (6,2)</jaula>
@@ -199,147 +202,188 @@
     </partida>
     <solucion>
         <codigo>H-1_com</codigo>
-        <celda>2, (1,1)</celda>
-        <celda>6, (1,2)</celda>
-        <celda>4, (1,3)</celda>
-        <celda>3, (1,4)</celda>
-        <celda>1, (1,5)</celda>
-        <celda>5, (1,6)</celda>
-        <celda>6, (2,1)</celda>
-        <celda>3, (2,2)</celda>
-        <celda>1, (2,3)</celda>
-        <celda>2, (2,4)</celda>
-        <celda>5, (2,5)</celda>
-        <celda>4, (2,6)</celda>
-        <celda>1, (3,1)</celda>
-        <celda>4, (3,2)</celda>
-        <celda>6, (3,3)</celda>
-        <celda>5, (3,4)</celda>
-        <celda>2, (3,5)</celda>
-        <celda>3, (3,6)</celda>
-        <celda>4, (4,1)</celda>
-        <celda>2, (4,2)</celda>
-        <celda>5, (4,3)</celda>
-        <celda>1, (4,4)</celda>
-        <celda>3, (4,5)</celda>
-        <celda>6, (4,6)</celda>
+        <nivelDificultad>Medio</nivelDificultad>
+        <celda>6, (1,1)</celda>
+        <celda>5, (1,2)</celda>
+        <celda>2, (1,3)</celda>
+        <celda>1, (1,4)</celda>
+        <celda>3, (1,5)</celda>
+        <celda>4, (1,6)</celda>
+        <celda>1, (2,1)</celda>
+        <celda>4, (2,2)</celda>
+        <celda>6, (2,3)</celda>
+        <celda>5, (2,4)</celda>
+        <celda>2, (2,5)</celda>
+        <celda>3, (2,6)</celda>
+        <celda>5, (3,1)</celda>
+        <celda>1, (3,2)</celda>
+        <celda>3, (3,3)</celda>
+        <celda>2, (3,4)</celda>
+        <celda>4, (3,5)</celda>
+        <celda>6, (3,6)</celda>
+        <celda>2, (4,1)</celda>
+        <celda>3, (4,2)</celda>
+        <celda>1, (4,3)</celda>
+        <celda>4, (4,4)</celda>
+        <celda>6, (4,5)</celda>
+        <celda>5, (4,6)</celda>
         <celda>3, (5,1)</celda>
-        <celda>5, (5,2)</celda>
-        <celda>2, (5,3)</celda>
-        <celda>4, (5,4)</celda>
-        <celda>6, (5,5)</celda>
+        <celda>2, (5,2)</celda>
+        <celda>4, (5,3)</celda>
+        <celda>6, (5,4)</celda>
+        <celda>5, (5,5)</celda>
         <celda>1, (5,6)</celda>
-        <celda>5, (6,1)</celda>
-        <celda>1, (6,2)</celda>
-        <celda>3, (6,3)</celda>
-        <celda>6, (6,4)</celda>
-        <celda>4, (6,5)</celda>
-        <celda>2, (6,6)</celda>
+        <celda>4, (6,1)</celda>
+        <celda>6, (6,2)</celda>
+        <celda>5, (6,3)</celda>
+        <celda>3, (6,4)</celda>
+        <celda>2, (6,5)</celda>
+        <celda>1, (6,6)</celda>
     </solucion>
 
     <partida>
         <codigo>H-2_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
-        <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
+        <nivelDificultad>Medio</nivelDificultad>
+        <jaula>4, -, (1,1), (2,1)</jaula>
+        <jaula>8, +, (3,1), (3,2), (4,2)</jaula>
+        <jaula>2, /, (4,1), (5,1)</jaula>
+        <jaula>2, -, (1,2), (1,3)</jaula>
+        <jaula>10, +, (6,1), (6,2), (5,2)</jaula>
+        <jaula>5, -, (2,2), (2,3)</jaula>
+        <jaula>2, /, (3,3), (4,3)</jaula>
+        <jaula>3, /, (5,3), (5,4)</jaula>
+        <jaula>14, +, (6,3), (6,4), (6,5)</jaula>
+        <jaula>12, x, (1,4), (2,4), (2,5)</jaula>
+        <jaula>5, -, (3,4), (3,5)</jaula>
+        <jaula>120, x, (4,4), (4,5), (5,5)</jaula>
+        <jaula>14, +, (1,5), (1,6), (2,6)</jaula>
+        <jaula>8, +, (3,6), (4,6)</jaula>
+        <jaula>1, -, (5,6), (6,6)</jaula>
+        <constantes>NO</constantes>
     </partida>
     <solucion>
         <codigo>H-2_com</codigo>
-        <celda>2, (1,1)</celda>
-        <celda>6, (1,2)</celda>
-        <celda>4, (1,3)</celda>
-        <celda>3, (1,4)</celda>
-        <celda>1, (1,5)</celda>
-        <celda>5, (1,6)</celda>
-        <celda>6, (2,1)</celda>
-        <celda>3, (2,2)</celda>
+        <nivelDificultad>Medio</nivelDificultad>
+        <celda>1, (1,1)</celda>
+        <celda>3, (1,2)</celda>
+        <celda>5, (1,3)</celda>
+        <celda>2, (1,4)</celda>
+        <celda>4, (1,5)</celda>
+        <celda>6, (1,6)</celda>
+        <celda>5, (2,1)</celda>
+        <celda>6, (2,2)</celda>
         <celda>1, (2,3)</celda>
-        <celda>2, (2,4)</celda>
-        <celda>5, (2,5)</celda>
+        <celda>3, (2,4)</celda>
+        <celda>2, (2,5)</celda>
         <celda>4, (2,6)</celda>
-        <celda>1, (3,1)</celda>
-        <celda>4, (3,2)</celda>
-        <celda>6, (3,3)</celda>
-        <celda>5, (3,4)</celda>
-        <celda>2, (3,5)</celda>
+        <celda>2, (3,1)</celda>
+        <celda>5, (3,2)</celda>
+        <celda>4, (3,3)</celda>
+        <celda>6, (3,4)</celda>
+        <celda>1, (3,5)</celda>
         <celda>3, (3,6)</celda>
-        <celda>4, (4,1)</celda>
-        <celda>2, (4,2)</celda>
-        <celda>5, (4,3)</celda>
-        <celda>1, (4,4)</celda>
-        <celda>3, (4,5)</celda>
-        <celda>6, (4,6)</celda>
-        <celda>3, (5,1)</celda>
-        <celda>5, (5,2)</celda>
-        <celda>2, (5,3)</celda>
-        <celda>4, (5,4)</celda>
-        <celda>6, (5,5)</celda>
-        <celda>1, (5,6)</celda>
-        <celda>5, (6,1)</celda>
-        <celda>1, (6,2)</celda>
-        <celda>3, (6,3)</celda>
-        <celda>6, (6,4)</celda>
-        <celda>4, (6,5)</celda>
-        <celda>2, (6,6)</celda>
+        <celda>3, (4,1)</celda>
+        <celda>1, (4,2)</celda>
+        <celda>2, (4,3)</celda>
+        <celda>4, (4,4)</celda>
+        <celda>6, (4,5)</celda>
+        <celda>5, (4,6)</celda>
+        <celda>6, (5,1)</celda>
+        <celda>4, (5,2)</celda>
+        <celda>3, (5,3)</celda>
+        <celda>1, (5,4)</celda>
+        <celda>5, (5,5)</celda>
+        <celda>2, (5,6)</celda>
+        <celda>4, (6,1)</celda>
+        <celda>2, (6,2)</celda>
+        <celda>6, (6,3)</celda>
+        <celda>5, (6,4)</celda>
+        <celda>3, (6,5)</celda>
+        <celda>1, (6,6)</celda>
     </solucion>
 
     <partida>
         <codigo>H-3_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
-        <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
+        <nivelDificultad>Medio</nivelDificultad>
+        <jaula>3, /, (1,1), (1,2)</jaula>
+        <jaula>1, -, (2,1), (2,2)</jaula>
+        <jaula>8, x, (3,1), (4,1), (5,1)</jaula>
+        <jaula>10, +, (6,1), (6,2), (5,2)</jaula>
+        <jaula>2, -, (3,2), (4,2)</jaula>
+        <jaula>5, -, (1,3), (2,3)</jaula>
+        <jaula>13, +, (3,3), (4,3), (4,4)</jaula>
+        <jaula>1, -, (5,3), (6,3)</jaula>
+        <jaula>12, x, (1,4), (2,4), (3,4)</jaula>
+        <jaula>3, -, (6,4), (6,5)</jaula>
+        <jaula>4, -, (5,4), (5,5)</jaula>
+        <jaula>2, /, (1,5), (2,5)</jaula>
+        <jaula>5, -, (3,5), (3,6)</jaula>
+        <jaula>2, -, (1,6), (2,6)</jaula>
+        <jaula>1, -, (4,5), (4,6)</jaula>
+        <jaula>3, /, (5,6), (6,6)</jaula>
+        <constantes>NO</constantes>
     </partida>
     <solucion>
         <codigo>H-3_com</codigo>
-        <celda>2, (1,1)</celda>
-        <celda>6, (1,2)</celda>
-        <celda>4, (1,3)</celda>
+        <nivelDificultad>Medio</nivelDificultad>
+        <celda>6, (1,1)</celda>
+        <celda>2, (1,2)</celda>
+        <celda>1, (1,3)</celda>
         <celda>3, (1,4)</celda>
-        <celda>1, (1,5)</celda>
+        <celda>4, (1,5)</celda>
         <celda>5, (1,6)</celda>
-        <celda>6, (2,1)</celda>
-        <celda>3, (2,2)</celda>
-        <celda>1, (2,3)</celda>
-        <celda>2, (2,4)</celda>
-        <celda>5, (2,5)</celda>
-        <celda>4, (2,6)</celda>
-        <celda>1, (3,1)</celda>
-        <celda>4, (3,2)</celda>
-        <celda>6, (3,3)</celda>
-        <celda>5, (3,4)</celda>
-        <celda>2, (3,5)</celda>
-        <celda>3, (3,6)</celda>
-        <celda>4, (4,1)</celda>
-        <celda>2, (4,2)</celda>
-        <celda>5, (4,3)</celda>
-        <celda>1, (4,4)</celda>
+        <celda>5, (2,1)</celda>
+        <celda>4, (2,2)</celda>
+        <celda>6, (2,3)</celda>
+        <celda>1, (2,4)</celda>
+        <celda>2, (2,5)</celda>
+        <celda>3, (2,6)</celda>
+        <celda>2, (3,1)</celda>
+        <celda>3, (3,2)</celda>
+        <celda>5, (3,3)</celda>
+        <celda>4, (3,4)</celda>
+        <celda>6, (3,5)</celda>
+        <celda>1, (3,6)</celda>
+        <celda>1, (4,1)</celda>
+        <celda>5, (4,2)</celda>
+        <celda>2, (4,3)</celda>
+        <celda>6, (4,4)</celda>
         <celda>3, (4,5)</celda>
-        <celda>6, (4,6)</celda>
-        <celda>3, (5,1)</celda>
-        <celda>5, (5,2)</celda>
-        <celda>2, (5,3)</celda>
-        <celda>4, (5,4)</celda>
-        <celda>6, (5,5)</celda>
-        <celda>1, (5,6)</celda>
-        <celda>5, (6,1)</celda>
+        <celda>4, (4,6)</celda>
+        <celda>4, (5,1)</celda>
+        <celda>6, (5,2)</celda>
+        <celda>3, (5,3)</celda>
+        <celda>5, (5,4)</celda>
+        <celda>1, (5,5)</celda>
+        <celda>2, (5,6)</celda>
+        <celda>3, (6,1)</celda>
         <celda>1, (6,2)</celda>
-        <celda>3, (6,3)</celda>
-        <celda>6, (6,4)</celda>
-        <celda>4, (6,5)</celda>
-        <celda>2, (6,6)</celda>
+        <celda>4, (6,3)</celda>
+        <celda>2, (6,4)</celda>
+        <celda>5, (6,5)</celda>
+        <celda>6, (6,6)</celda>
     </solucion>
 
     <partida>
         <codigo>D-1_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <nivelDificultad>Dificil</nivelDificultad>
+        <jaula>1, -, (1,1), (1,2)</jaula>
+        <jaula>3, /, (2,1), (2,2)</jaula>
+        <jaula>9, +, (3,1), (4,1), (5,1)</jaula>
+        <jaula>3, /, (3,2), (3,3)</jaula>
+        <jaula>12, x, (1,3), (2,3)</jaula>
+        <jaula>5, +, (4,2), (4,3)</jaula>
+        <jaula>2, /, (5,2), (6,2)</jaula>
+        <jaula>8, +, (5,3), (5,4)</jaula>
+        <jaula>2, -, (6,3), (6,4)</jaula>
+        <jaula>2, /, (1,4), (2,4)</jaula>
+        <jaula>6, +, (3,4), (3,5)</jaula>
+        <jaula>11, +, (4,4), (4,5)</jaula>
         <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
     </partida>
     <solucion>
         <codigo>D-1_com</codigo>
+        <nivelDificultad>Dificil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
@@ -380,13 +424,14 @@
 
     <partida>
         <codigo>D-2_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
+        <nivelDificultad>Dificil</nivelDificultad>
         <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
         <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
         <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
     </partida>
     <solucion>
         <codigo>D-2_com</codigo>
+        <nivelDificultad>Dificil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
@@ -434,6 +479,7 @@
     </partida>
     <solucion>
         <codigo>D-3_com</codigo>
+        <nivelDificultad>Dificil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
