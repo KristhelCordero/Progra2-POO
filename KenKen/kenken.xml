@@ -21,6 +21,7 @@
     </partida>
     <solucion>
         <codigo>E-1_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
@@ -80,6 +81,7 @@
     </partida>
     <solucion>
         <codigo>E-2_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>5, (1,2)</celda>
         <celda>6, (1,3)</celda>
@@ -142,6 +144,7 @@
     </partida>
     <solucion>
         <codigo>E-3_com</codigo>
+        <nivelDificultad>Facil</nivelDificultad>
         <celda>5, (1,1)</celda>
         <celda>4, (1,2)</celda>
         <celda>1, (1,3)</celda>
@@ -199,6 +202,7 @@
     </partida>
     <solucion>
         <codigo>H-1_com</codigo>
+        <nivelDificultad>Medio</nivelDificultad>
         <celda>6, (1,1)</celda>
         <celda>5, (1,2)</celda>
         <celda>2, (1,3)</celda>
@@ -259,6 +263,7 @@
     </partida>
     <solucion>
         <codigo>H-2_com</codigo>
+        <nivelDificultad>Medio</nivelDificultad>
         <celda>1, (1,1)</celda>
         <celda>3, (1,2)</celda>
         <celda>5, (1,3)</celda>
@@ -320,6 +325,7 @@
     </partida>
     <solucion>
         <codigo>H-3_com</codigo>
+        <nivelDificultad>Medio</nivelDificultad>
         <celda>6, (1,1)</celda>
         <celda>2, (1,2)</celda>
         <celda>1, (1,3)</celda>
@@ -361,8 +367,18 @@
     <partida>
         <codigo>D-1_in</codigo>
         <nivelDificultad>Dificil</nivelDificultad>
-        <jaula></jaula>
-        <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
+        <jaula>1, -, (1,1), (1,2)</jaula>
+        <jaula>3, /, (2,1), (2,2)</jaula>
+        <jaula>9, +, (3,1), (4,1), (5,1)</jaula>
+        <jaula>3, /, (3,2), (3,3)</jaula>
+        <jaula>12, x, (1,3), (2,3)</jaula>
+        <jaula>5, +, (4,2), (4,3)</jaula>
+        <jaula>2, /, (5,2), (6,2)</jaula>
+        <jaula>8, +, (5,3), (5,4)</jaula>
+        <jaula>2, -, (6,3), (6,4)</jaula>
+        <jaula>2, /, (1,4), (2,4)</jaula>
+        <jaula>6, +, (3,4), (3,5)</jaula>
+        <jaula>11, +, (4,4), (4,5)</jaula>
         <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
     </partida>
     <solucion>
@@ -408,13 +424,14 @@
 
     <partida>
         <codigo>D-2_in</codigo>
-        <nivelDificultad>Facil</nivelDificultad>
+        <nivelDificultad>Dificil</nivelDificultad>
         <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
         <jaula>valor, operación aritmética, (fila, columna), (fila, columna)</jaula>
         <constantes>(constante, fila, columna), (constante, fila, columna)</constantes>
     </partida>
     <solucion>
         <codigo>D-2_com</codigo>
+        <nivelDificultad>Dificil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
@@ -462,6 +479,7 @@
     </partida>
     <solucion>
         <codigo>D-3_com</codigo>
+        <nivelDificultad>Dificil</nivelDificultad>
         <celda>2, (1,1)</celda>
         <celda>6, (1,2)</celda>
         <celda>4, (1,3)</celda>
