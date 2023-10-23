@@ -74,6 +74,7 @@ public class BD {
                 if("celda".equals(nieto.getNodeName())){
                     System.out.println(nieto.getTextContent());
                     kenken.insertarValorSolucion(nieto.getTextContent());
+                    System.out.println("sinserto");
                 }
 
             }

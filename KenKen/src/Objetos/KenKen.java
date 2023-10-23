@@ -61,19 +61,11 @@ public class KenKen {
 
             
     public void insertarValorSolucion(String celda){
-        System.out.println(celda);
         String[] partes = celda.split("[,()]");
-        System.out.println("Se hace el split");
-        System.out.println(partes.length);
-        System.out.println("e"+partes[0].trim());
-        System.out.println("hhh");
-        
+       
         int valor = Integer.parseInt(partes[0].trim());
-        System.out.println(partes[1].trim());
-        int fila = Integer.parseInt(partes[1].trim());        
-        System.out.println(partes[2].trim());
-        int columna = Integer.parseInt(partes[2].trim());
-        System.out.println("no hay problema");
+        int fila = Integer.parseInt(partes[2].trim());        
+        int columna = Integer.parseInt(partes[3].trim());
         System.out.println(valor+"\n"+fila+"\n"+columna);
 
         solucion[fila][columna]=valor;
