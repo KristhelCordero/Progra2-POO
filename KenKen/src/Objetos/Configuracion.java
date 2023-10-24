@@ -22,6 +22,10 @@ public class Configuracion {
         this.reloj = reloj;
     }
 
+    Configuracion() {
+        setConfiguracion(true,true,1,3);
+    }
+
     public boolean isPosicion() {
         return posicionBarra;
     }

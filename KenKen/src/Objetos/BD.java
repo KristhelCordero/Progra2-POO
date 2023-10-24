@@ -22,11 +22,9 @@ import org.xml.sax.SAXException;
  * @author Usuario
  */
 public class BD { 
-    Configuracion configuracion;
+    Configuracion configuracion= new Configuracion();
     List<KenKen> listaKenKen = new ArrayList<>();
-    String kenKenActual="src/imagenes/";
-    
-    
+     
     public void BD(){
        extraerXMLListaKenKen();
        configuracion.resetear();
@@ -130,26 +128,30 @@ public class BD {
     
     public String extraerKenKenActual(){
         Random rand = new Random();
-        String nombre = null;
-        int dificultad=rand.nextInt(3) + 1;
+        String nombre = "src/imagenes/";
+        
         int numeroKenKen = rand.nextInt(3) + 1;
-        switch (dificultad) {
+        switch (configuracion.getDificultad()) {
             case 1 -> nombre+="E-"+Integer.toString(numeroKenKen)+"_in.png";
             case 2 -> nombre+="H-"+Integer.toString(numeroKenKen)+"_in.png";
             default -> nombre+="D-"+Integer.toString(numeroKenKen)+"_in.png";
         }
-        for(KenKen kenken:listaKenKen){
-            if(nombre.equals(kenken.getNombre())){
-                ;
-            }
-        }
-        return kenKenActual;
+        return nombre;
     }
     //Configuracion
     
     public void generarConfiguracionDefault(){
         configuracion.resetear();
     }
+    
+    public KenKen buscarKenKen(String nombre){
+        nombre=nombre.substring(0, nombre.length() - 3);
+        for(KenKen kenken:listaKenKen){
+            if(kenken.nombre.equals(nombre)){
+                return kenken;
+            }
+        }
+        return null;
+    }
 
-        
 }

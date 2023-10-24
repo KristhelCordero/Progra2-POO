@@ -1,6 +1,6 @@
-
 package Interfaz;
 
+import static Interfaz.MenuPrincipal.bd;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 public class Jugar extends javax.swing.JFrame {
     private JLabel[][] matrizDeLabels;
     private boolean iniciado;
+    private final String kenken=bd.extraerKenKenActual();
     /**
      * Creates new form Jugar
      */
@@ -25,11 +26,7 @@ public class Jugar extends javax.swing.JFrame {
         this.definirColorLabels();
         this.setLocationRelativeTo(this);
         iniciado=false;
-        if (2==1){ //funcionaaaaaaaaaaaaa
-            this.setImageLabel("src/imagenes/E-1_in.png");
-        }else{
-            this.setImageLabel("src/imagenes/E-2_in.png");
-        }
+        setImageLabel(kenken);
     }
     
     public void setImageLabel(String root){
@@ -880,6 +877,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonOtroJuego.setText("Otro Juego");
         jButtonOtroJuego.setBorder(null);
         jButtonOtroJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonOtroJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOtroJuegoActionPerformed(evt);
+            }
+        });
 
         jButtonTerminarJuego.setBackground(new java.awt.Color(190, 211, 179));
         jButtonTerminarJuego.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -899,6 +901,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonValidarJuego.setText("Validar Juego");
         jButtonValidarJuego.setBorder(null);
         jButtonValidarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonValidarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidarJuegoActionPerformed(evt);
+            }
+        });
 
         jButtonUndo.setBackground(new java.awt.Color(190, 211, 179));
         jButtonUndo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -1278,6 +1285,22 @@ public class Jugar extends javax.swing.JFrame {
     private void jButtonBorradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorradorActionPerformed
         borrarNumero();
     }//GEN-LAST:event_jButtonBorradorActionPerformed
+
+    private void jButtonOtroJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOtroJuegoActionPerformed
+        int dialogButton=JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog(null,
+                "Está seguro que desea empezar otro juego?",
+                "Confirmación",dialogButton);
+        if(dialogButton==JOptionPane.YES_OPTION){
+            Jugar nuevoJuego=new Jugar();
+            nuevoJuego.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jButtonOtroJuegoActionPerformed
+
+    private void jButtonValidarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarJuegoActionPerformed
+        
+    }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
     /**
      * @param args the command line arguments
