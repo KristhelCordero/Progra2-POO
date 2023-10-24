@@ -6,6 +6,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -82,9 +83,21 @@ public class Jugar extends javax.swing.JFrame {
             for (JLabel label : filaLabel) {
                 if (label.isOpaque()) {
                     label.setText(Integer.toString(num));
+                    this.repaint();
                 }
             }
         }
+    }
+    
+    public void borrarNumero(){
+        for (JLabel[] filaLabel : matrizDeLabels) {
+            for (JLabel label : filaLabel) {
+                if (label.isOpaque()) {
+                    label.setText(null);
+                }
+            }
+        }
+        this.repaint();
     }
     
     public void definirColorLabels() {
@@ -114,6 +127,33 @@ public class Jugar extends javax.swing.JFrame {
             }
         }
         this.repaint();
+    }
+    
+    public boolean hayCasillaSeleccionada(){
+        for (JLabel[] filaLabel : matrizDeLabels) {
+            for (JLabel label : filaLabel) {
+                if (label.isOpaque()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
+    public boolean validarCondiciones(){
+        if(!iniciado){
+            JOptionPane.showMessageDialog(null, """
+                                                El juego no ha sido iniciado, 
+                                                no puede colocar ningún número""");
+            return false;
+        }else if(!hayCasillaSeleccionada()){
+            JOptionPane.showMessageDialog(null, """
+                                                No hay ninguna casilla seleccionada, 
+                                                no puede colocar ningún número""");
+            return false;
+        }else{
+            return true;
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -186,7 +226,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel_6_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_6.setToolTipText("");
+        jLabel_6_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +240,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 567, 100, 107));
 
         jLabel_6_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_5.setToolTipText("");
+        jLabel_6_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,7 +254,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 567, 100, 107));
 
         jLabel_6_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_4.setToolTipText("");
+        jLabel_6_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -219,7 +268,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 567, 100, 107));
 
         jLabel_6_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_3.setToolTipText("");
+        jLabel_6_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +282,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 567, 100, 107));
 
         jLabel_6_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_2.setToolTipText("");
+        jLabel_6_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -241,7 +296,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 567, 100, 107));
 
         jLabel_6_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_6_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_6_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_6_1.setToolTipText("");
+        jLabel_6_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_6_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_6_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_6_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -252,7 +310,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_6_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 567, 100, 107));
 
         jLabel_5_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_6.setToolTipText("");
+        jLabel_5_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -263,7 +324,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 458, 100, 107));
 
         jLabel_5_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_5.setToolTipText("");
+        jLabel_5_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -274,7 +338,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 458, 100, 107));
 
         jLabel_5_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_4.setToolTipText("");
+        jLabel_5_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -285,7 +352,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 458, 100, 107));
 
         jLabel_5_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_3.setToolTipText("");
+        jLabel_5_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -296,7 +366,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 458, 100, 107));
 
         jLabel_5_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_2.setToolTipText("");
+        jLabel_5_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -307,7 +380,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 458, 100, 107));
 
         jLabel_5_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_5_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_5_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_5_1.setToolTipText("");
+        jLabel_5_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_5_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_5_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_5_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -318,7 +394,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_5_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 458, 100, 107));
 
         jLabel_4_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_6.setToolTipText("");
+        jLabel_4_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -329,7 +408,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 348, 100, 107));
 
         jLabel_4_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_5.setToolTipText("");
+        jLabel_4_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -340,7 +422,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 348, 100, 107));
 
         jLabel_4_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_4.setToolTipText("");
+        jLabel_4_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -351,7 +436,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 348, 100, 107));
 
         jLabel_4_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_3.setToolTipText("");
+        jLabel_4_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -362,7 +450,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 348, 100, 107));
 
         jLabel_4_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_2.setToolTipText("");
+        jLabel_4_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -373,7 +464,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 348, 100, 107));
 
         jLabel_4_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_4_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_4_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_4_1.setToolTipText("");
+        jLabel_4_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_4_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_4_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_4_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -384,7 +478,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_4_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 348, 100, 107));
 
         jLabel_3_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_6.setToolTipText("");
+        jLabel_3_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -395,7 +492,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 239, 100, 107));
 
         jLabel_3_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_5.setToolTipText("");
+        jLabel_3_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -406,7 +506,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 240, 100, 107));
 
         jLabel_3_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_4.setToolTipText("");
+        jLabel_3_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -417,7 +520,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 240, 97, 107));
 
         jLabel_3_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_3.setToolTipText("");
+        jLabel_3_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -428,7 +534,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 239, 97, 107));
 
         jLabel_3_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_2.setToolTipText("");
+        jLabel_3_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -439,7 +548,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 239, 97, 107));
 
         jLabel_3_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_3_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_3_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_3_1.setToolTipText("");
+        jLabel_3_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_3_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_3_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_3_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -450,7 +562,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_3_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 239, 97, 107));
 
         jLabel_2_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_6.setToolTipText("");
+        jLabel_2_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -461,7 +576,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 130, 97, 107));
 
         jLabel_2_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_5.setToolTipText("");
+        jLabel_2_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -472,7 +590,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 130, 100, 107));
 
         jLabel_2_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_4.setToolTipText("");
+        jLabel_2_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -483,7 +604,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 130, 100, 107));
 
         jLabel_2_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_3.setToolTipText("");
+        jLabel_2_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -494,7 +618,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 129, 100, 107));
 
         jLabel_2_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_2.setToolTipText("");
+        jLabel_2_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -505,7 +632,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 97, 107));
 
         jLabel_2_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_2_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_2_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_2_1.setToolTipText("");
+        jLabel_2_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_2_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_2_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_2_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -516,7 +646,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_2_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 97, 107));
 
         jLabel_1_6.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_6.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_1_6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_6.setToolTipText("");
+        jLabel_1_6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_6.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_6.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -527,7 +660,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(588, 20, 97, 107));
 
         jLabel_1_5.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_5.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_1_5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_5.setToolTipText("");
+        jLabel_1_5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_5.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_5.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -538,7 +674,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 20, 102, 107));
 
         jLabel_1_4.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_4.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_1_4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_4.setToolTipText("");
+        jLabel_1_4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_4.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_4.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -549,7 +688,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 20, 100, 107));
 
         jLabel_1_3.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_3.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_1_3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_3.setToolTipText("");
+        jLabel_1_3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_3.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_3.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -560,7 +702,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 100, 107));
 
         jLabel_1_2.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_2.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        jLabel_1_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_2.setToolTipText("");
+        jLabel_1_2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_2.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_2.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -571,7 +716,10 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 100, 107));
 
         jLabel_1_1.setBackground(new java.awt.Color(209, 232, 239));
+        jLabel_1_1.setFont(new java.awt.Font("Gadugi", 1, 48)); // NOI18N
+        jLabel_1_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_1.setToolTipText("");
+        jLabel_1_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel_1_1.setMaximumSize(new java.awt.Dimension(36, 16));
         jLabel_1_1.setMinimumSize(new java.awt.Dimension(36, 16));
         jLabel_1_1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -582,7 +730,9 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 97, 107));
 
         jLabelKenKen.setBackground(new java.awt.Color(190, 211, 179));
+        jLabelKenKen.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
         jLabelKenKen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/E-1_in.png"))); // NOI18N
+        jLabelKenKen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelKenKen.setMaximumSize(new java.awt.Dimension(770, 690));
         jLabelKenKen.setMinimumSize(new java.awt.Dimension(770, 690));
         jPanel1.add(jLabelKenKen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 690));
@@ -597,30 +747,55 @@ public class Jugar extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/2.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/3.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/5.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/6.png"))); // NOI18N
         jButton6.setBorder(null);
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/4.png"))); // NOI18N
         jButton4.setBorder(null);
@@ -638,6 +813,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonBorrador.setContentAreaFilled(false);
         jButtonBorrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonBorrador.setPreferredSize(new java.awt.Dimension(40, 40));
+        jButtonBorrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorradorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -688,6 +868,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonIniciarJuego.setText("Iniciar Juego");
         jButtonIniciarJuego.setBorder(null);
         jButtonIniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonIniciarJuego.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarJuegoActionPerformed(evt);
+            }
+        });
 
         jButtonOtroJuego.setBackground(new java.awt.Color(190, 211, 179));
         jButtonOtroJuego.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -828,7 +1013,9 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(4);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
@@ -1052,6 +1239,45 @@ public class Jugar extends javax.swing.JFrame {
         jLabel_6_6.setOpaque(true);
         this.repaint();
     }//GEN-LAST:event_jLabel_6_6MouseClicked
+
+    private void jButtonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarJuegoActionPerformed
+        // Iniciar Timer o Cronometro
+        iniciado=true;
+    }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(1);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(2);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(3);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(5);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if (validarCondiciones()){
+            introducirNumeroEnCasilla(6);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButtonBorradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorradorActionPerformed
+        borrarNumero();
+    }//GEN-LAST:event_jButtonBorradorActionPerformed
 
     /**
      * @param args the command line arguments
