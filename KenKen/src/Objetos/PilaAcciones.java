@@ -40,9 +40,7 @@ public class PilaAcciones{
         return colaLista;
     }
     
-    public NodoAccion peekLeft(){
-        return cabezaLista;
-    }
+
     
     public void clear(){
         cabezaLista=null;
@@ -59,19 +57,12 @@ public class PilaAcciones{
         }else{
             NodoAccion tmp=colaLista;
             colaLista=colaLista.predecesor;
-            colaLista.sucesor=null;
+            if (colaLista!=null){
+                colaLista.sucesor=null;
+            }
             return tmp;
         }
     }
     
-    public NodoAccion popLeft(){
-        if (cabezaLista==null){
-            return null;
-        }else{
-            NodoAccion tmp=cabezaLista;
-            cabezaLista=cabezaLista.sucesor;
-            cabezaLista.predecesor=null;
-            return tmp;
-        }
-    }
+
 }
