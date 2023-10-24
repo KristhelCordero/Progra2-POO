@@ -6,30 +6,26 @@ package Objetos;
  * @author Usuario
  */
 public class PilaAcciones{
-    private NodoAccion cabezaLista;
-    private NodoAccion colaLista;
+    private NodoAccion top;
     
     PilaAcciones(){
-        cabezaLista=null;
-        colaLista=null;
+        top=null;
     }
     
     public void push(Accion t){
         NodoAccion nodo=new NodoAccion();
         nodo.dato=t;
-        if(cabezaLista==null){
-            cabezaLista=nodo;
-            colaLista=nodo;
+        if(empty()){
+            top=nodo;
         }else{
-            nodo.predecesor= colaLista;
-            colaLista.sucesor=nodo;
-            colaLista=nodo;
+            nodo.sucesor= top;
+            top=nodo;
         }
     }
     
     public void imprimirLista(){
         NodoAccion nodo;
-        nodo=cabezaLista;
+        nodo=top;
         while (nodo!= null){
             System.out.println(nodo.dato);
             nodo=nodo.sucesor;
@@ -37,30 +33,25 @@ public class PilaAcciones{
     }
     
     public NodoAccion peek(){
-        return colaLista;
+        return top;
     }
-    
 
-    
     public void clear(){
-        cabezaLista=null;
-        colaLista=null;
+        top=null;
     }
     
     public boolean empty(){
-        return colaLista == null; 
+        return top == null; 
     }
     
-    public NodoAccion pop(){
-        if (colaLista==null){
+    public Accion pop(){
+        if (top==null){
             return null;
         }else{
-            NodoAccion tmp=colaLista;
-            colaLista=colaLista.predecesor;
-            if (colaLista!=null){
-                colaLista.sucesor=null;
-            }
-            return tmp;
+            NodoAccion tmp=top;
+            top=top.sucesor;
+            tmp.sucesor=null;
+            return tmp.dato;
         }
     }
     
