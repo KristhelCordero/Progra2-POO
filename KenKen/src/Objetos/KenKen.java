@@ -6,6 +6,7 @@ package Objetos;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 
 /**
  *
@@ -71,8 +72,16 @@ public class KenKen {
         solucion[fila-1][columna-1]=valor;
     }
     
-    public boolean[][] validarSolucion(){
+    public boolean[][] validarSolucion(JLabel[][] partida){
         boolean[][] matrizCorreccion= new boolean[6][6];
+        
+        for(int i=0; i<6;i++){
+            for (int j=0; j<6;i++){
+                matrizCorreccion[i][j]=(Integer.parseInt(partida[i][j].getText())
+                        ==solucion[i][j]);
+                
+            }
+        }
         return matrizCorreccion;
     }
     
