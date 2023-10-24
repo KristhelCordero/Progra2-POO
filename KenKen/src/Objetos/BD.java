@@ -160,12 +160,14 @@ public class BD {
     
     //ACCIONES
     
-    public void annadirAccionEscribir(int fila, int columna){
-        Accion accion=new Accion(fila,columna);
+    public void annadirAccionEscribir(int fila, int columna, String dato){
+        Accion accion=new Accion(fila,columna,dato);
+        accion.agregar=true;
         acciones.push(accion);
     }
-    public void annadirAccionBorrar(int fila, int columna, int dato){
+    public void annadirAccionBorrar(int fila, int columna, String dato){
         Accion accion=new Accion(fila,columna,dato);
+        accion.agregar=false;
         acciones.push(accion);
     }
     
