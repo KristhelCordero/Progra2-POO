@@ -1057,6 +1057,7 @@ public class Jugar extends javax.swing.JFrame {
         desOpacarLabels();
         quitarTextoLabels();
         definirColorLabels();
+        bd.limpiarPilas();
         //reiniciar el timer o cronómetro
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
