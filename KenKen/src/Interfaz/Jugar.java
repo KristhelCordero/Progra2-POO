@@ -171,9 +171,7 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
-    public void validarKenKen(){
-        boolean[][] solucion;
-        solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
+    public void validarKenKen(boolean[][] solucion){
         for (int i=0; i<6; i++) {
             for (int j=0; j<6; j++) {
                 if(solucion[i][j]){
@@ -1343,13 +1341,19 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOtroJuegoActionPerformed
 
     private void jButtonValidarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarJuegoActionPerformed
-        validarKenKen();
-        int dialogResult = JOptionPane.showConfirmDialog(this, 
+        boolean[][] solucion;
+        solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
+        validarKenKen(solucion);
+        if(todosTrue(solucion)){
+            
+        }else{
+            int dialogResult = JOptionPane.showConfirmDialog(this, 
             "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
             "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            desOpacarLabels();
-            definirColorLabels();
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                desOpacarLabels();
+                definirColorLabels();
+            }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
@@ -1362,7 +1366,7 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonUndoActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
-        Accion accion=bd.rehacerAccion();
+        Accion accion=bd.rehacerAccion(); //No sé porque pero no hace nah
         if (accion!=null){
             matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
             this.repaint();

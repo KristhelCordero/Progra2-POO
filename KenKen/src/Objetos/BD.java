@@ -63,11 +63,11 @@ public class BD {
         KenKen kenken= new KenKen();
         NodeList nietos= eHijo.getChildNodes();
         for(int k=0; k<nietos.getLength();k++){
-            System.out.println("Largo: "+nietos.getLength());
-            System.out.println("index: "+k);
+            //System.out.println("Largo: "+nietos.getLength());
+            //System.out.println("index: "+k);
             Node nieto = nietos.item(k);
             if(nieto.getNodeType()==Node.ELEMENT_NODE){
-                System.out.println("Se evalua el nodo"+nieto.getNodeName());
+                //System.out.println("Se evalua el nodo"+nieto.getNodeName());
                 if("codigo".equals(nieto.getNodeName())){
                     kenken.setNombre(nieto.getTextContent());
                 }
@@ -77,9 +77,9 @@ public class BD {
                                     nieto.getTextContent()));
                 }
                 if("celda".equals(nieto.getNodeName())){
-                    System.out.println(nieto.getTextContent());
+                    //System.out.println(nieto.getTextContent());
                     kenken.insertarValorSolucion(nieto.getTextContent());
-                    System.out.println("sinserto");
+                    //System.out.println("sinserto");
                 }
 
             }
@@ -97,9 +97,8 @@ public class BD {
             NodeList listaPartidas = documento.getElementsByTagName("KenKen");
             for (int i=0; i < listaPartidas.getLength() ; i++){
                 Node nodoPadre = listaPartidas.item(i);
-                System.out.println(nodoPadre.getNodeName());//Ken Ken
+                //System.out.println(nodoPadre.getNodeName());//Ken Ken
                 if(nodoPadre.getNodeType()==Node.ELEMENT_NODE){
-                    
                     Element ePadre = (Element) nodoPadre;
                     NodeList hijos = ePadre.getChildNodes();
                     for (int j=0; j<hijos.getLength(); j++){
@@ -108,9 +107,9 @@ public class BD {
                         if(hijo.getNodeType()==Node.ELEMENT_NODE){
                             if ("solucion".equals(hijo.getNodeName())){
                                 Element eHijo = (Element) hijo;
-                                System.out.println("se convierte nodo en kenken");
+                                //System.out.println("se convierte nodo en kenken");
                                 listaKenKen.add(convertirNodoEnKenKen(eHijo));
-                                System.out.println("pasa la funcion");
+                                //System.out.println("pasa la funcion");
                             }
                         }
                     }
@@ -122,7 +121,7 @@ public class BD {
     }
     
     public void imprimirListaKenKen(){
-        System.out.println("llega");
+        //System.out.println("llega");
         for(KenKen kenken: listaKenKen){
             kenken.imprimir();
         }
@@ -150,7 +149,7 @@ public class BD {
         nombre=nombre.substring(13, nombre.length() - 6);
         nombre+="com";
         for(KenKen kenken:listaKenKen){
-            System.out.println(kenken.nombre);
+            //System.out.println(kenken.nombre);
             if(kenken.nombre.equals(nombre)){
                return kenken;
             }
