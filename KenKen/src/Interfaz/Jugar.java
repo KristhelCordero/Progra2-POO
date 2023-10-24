@@ -152,6 +152,21 @@ public class Jugar extends javax.swing.JFrame {
             return true;
         }
     }
+    
+    public void validarKenKen(){
+        boolean[][] solucion;
+        solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
+        for (int i=0; i<6; i++) {
+            for (int j=0; j<6; j++) {
+                if(solucion[i][j]){
+                    matrizDeLabels[i][j].setBackground(Color.green);
+                }else{
+                    matrizDeLabels[i][j].setBackground(Color.red);
+                }
+            }
+        }
+        this.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1016,6 +1031,7 @@ public class Jugar extends javax.swing.JFrame {
     private void jButtonReiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarJuegoActionPerformed
         desOpacarLabels();
         quitarTextoLabels();
+        definirColorLabels();
         //reiniciar el timer o cronómetro
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
@@ -1299,7 +1315,12 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOtroJuegoActionPerformed
 
     private void jButtonValidarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarJuegoActionPerformed
-        
+        validarKenKen();
+        try {
+            Thread.sleep(5000); // Espera 5 segundos (5000 milisegundos)
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restaura la interrupción
+        }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
     /**
