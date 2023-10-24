@@ -8,13 +8,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import Objetos.*;
-import java.applet.AudioClip;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import static java.lang.System.in;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.HeadlessException;
+import java.io.File;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 
 /**
  *
@@ -94,6 +96,23 @@ public class Jugar extends javax.swing.JFrame {
                     this.repaint();
                 }
             }
+        }
+    }
+    
+    public void playMusic(){
+        try{
+            File path= new File("src/Interfaz/aplausos.wav");
+            if (path.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(path);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+                JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); 
+            }else{
+                System.out.println("Can't find file");
+            }
+        }catch(HeadlessException | IOException | LineUnavailableException | UnsupportedAudioFileException e){
+            System.out.println("Rayos");
         }
     }
     
@@ -1354,11 +1373,10 @@ public class Jugar extends javax.swing.JFrame {
         validarKenKen(solucion);
         if(todosTrue(solucion)){
             if(bd.getConfiguracion().isSonido()){
-                AudioClip sonido;
-                sonido=java.applet.Applet.newAudioClip(getClass().getResource("src/sonido/aplausos.wav"));
-                sonido.play();
+                playMusic();
+            }else{
+                JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); 
             }
-            JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); 
         }else{
             int dialogResult = JOptionPane.showConfirmDialog(this, 
             "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 

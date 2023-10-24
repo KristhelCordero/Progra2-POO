@@ -193,7 +193,7 @@ public class BD {
         }
         return null;
     }
-    public Accion mostrarUltimaAccionDesecha(){
+    public Accion mostrarUltimaAccionDeshecha(){
         if (!accionesDeshechas.empty()){
             return accionesDeshechas.peek();
         }
