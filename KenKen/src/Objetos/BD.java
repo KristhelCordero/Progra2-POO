@@ -28,7 +28,7 @@ public class BD {
     List<KenKen> listaKenKen = new ArrayList<>();
     
     public void BD(){
-        
+       extraerXMLListaKenKen();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
