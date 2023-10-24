@@ -90,7 +90,7 @@ public class Jugar extends javax.swing.JFrame {
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
                 if (label.isOpaque()) {
-                    label.setText(null);
+                    label.setText("");
                 }
             }
         }
@@ -120,7 +120,7 @@ public class Jugar extends javax.swing.JFrame {
     public void quitarTextoLabels(){
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
-                label.setText(null);
+                label.setText("");
             }
         }
         this.repaint();
@@ -159,10 +159,11 @@ public class Jugar extends javax.swing.JFrame {
         for (int i=0; i<6; i++) {
             for (int j=0; j<6; j++) {
                 if(solucion[i][j]){
-                    matrizDeLabels[i][j].setBackground(Color.green);
+                    matrizDeLabels[i][j].setBackground(new Color(153,255,51, 45));
                 }else{
-                    matrizDeLabels[i][j].setBackground(Color.red);
+                    matrizDeLabels[i][j].setBackground(new Color(255,51,51, 45));
                 }
+                matrizDeLabels[i][j].setOpaque(true);
             }
         }
         this.repaint();
@@ -745,8 +746,6 @@ public class Jugar extends javax.swing.JFrame {
         jLabelKenKen.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
         jLabelKenKen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/E-1_in.png"))); // NOI18N
         jLabelKenKen.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelKenKen.setMaximumSize(new java.awt.Dimension(770, 690));
-        jLabelKenKen.setMinimumSize(new java.awt.Dimension(770, 690));
         jPanel1.add(jLabelKenKen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 690));
 
         jPanel3.setBackground(new java.awt.Color(94, 144, 66));
@@ -1316,10 +1315,12 @@ public class Jugar extends javax.swing.JFrame {
 
     private void jButtonValidarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarJuegoActionPerformed
         validarKenKen();
-        try {
-            Thread.sleep(5000); // Espera 5 segundos (5000 milisegundos)
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Restaura la interrupción
+        int dialogResult = JOptionPane.showConfirmDialog(this, 
+            "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
+            "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (dialogResult == JOptionPane.YES_OPTION) {
+            desOpacarLabels();
+            definirColorLabels();
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 

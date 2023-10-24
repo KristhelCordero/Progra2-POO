@@ -149,11 +149,9 @@ public class BD {
     public KenKen buscarKenKen(String nombre){
         nombre=nombre.substring(13, nombre.length() - 6);
         nombre+="com";
-        System.out.println(nombre);
         for(KenKen kenken:listaKenKen){
             System.out.println(kenken.nombre);
             if(kenken.nombre.equals(nombre)){
-                System.out.println("equals");
                return kenken;
             }
         }
