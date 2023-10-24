@@ -76,10 +76,13 @@ public class Jugar extends javax.swing.JFrame {
     }
     
     public void introducirNumeroEnCasilla(int num) {
-        for (JLabel[] filaLabel : matrizDeLabels) {
-            for (JLabel label : filaLabel) {
-                if (label.isOpaque()) {
-                    label.setText(Integer.toString(num));
+        String texto;
+        for (int i=0;i<6;i++) {
+            for (int j=0;j<6;j++) {
+                if (matrizDeLabels[i][j].isOpaque()) {
+                    texto=matrizDeLabels[i][j].getText();
+                    bd.annadirAccionEscribir(i, j, texto);
+                    matrizDeLabels[i][j].setText(Integer.toString(num));
                     this.repaint();
                 }
             }
@@ -87,14 +90,28 @@ public class Jugar extends javax.swing.JFrame {
     }
     
     public void borrarNumero(){
-        for (JLabel[] filaLabel : matrizDeLabels) {
-            for (JLabel label : filaLabel) {
-                if (label.isOpaque()) {
-                    label.setText("");
+        String texto="";
+        for (int i=0;i<6;i++) {
+            for (int j=0;j<6;j++) {
+                if (matrizDeLabels[i][j].isOpaque()) {
+                    texto=matrizDeLabels[i][j].getText();
+                    bd.annadirAccionBorrar(i, j, texto));
+                    matrizDeLabels[i][j].setText("");
                 }
             }
         }
         this.repaint();
+    }
+    
+    public static boolean todosTrue(boolean[][] matriz) {
+        for (boolean[] fila : matriz) {
+            for (boolean valor : fila) {
+                if (!valor) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     
     public void definirColorLabels() {
@@ -927,6 +944,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonUndo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/undo.png"))); // NOI18N
         jButtonUndo.setBorder(null);
         jButtonUndo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonUndo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUndoActionPerformed(evt);
+            }
+        });
 
         jButtonRedo.setBackground(new java.awt.Color(190, 211, 179));
         jButtonRedo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -934,6 +956,11 @@ public class Jugar extends javax.swing.JFrame {
         jButtonRedo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/redo.png"))); // NOI18N
         jButtonRedo.setBorder(null);
         jButtonRedo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRedo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRedoActionPerformed(evt);
+            }
+        });
 
         jButtonReiniciarJuego.setBackground(new java.awt.Color(190, 211, 179));
         jButtonReiniciarJuego.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -1323,6 +1350,14 @@ public class Jugar extends javax.swing.JFrame {
             definirColorLabels();
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
+
+    private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
+        
+    }//GEN-LAST:event_jButtonUndoActionPerformed
+
+    private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
+        
+    }//GEN-LAST:event_jButtonRedoActionPerformed
 
     /**
      * @param args the command line arguments
