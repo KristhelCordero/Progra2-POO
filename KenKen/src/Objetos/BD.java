@@ -188,5 +188,10 @@ public class BD {
         return null;
     }
     
+    public void limpiarPilas(){
+        acciones.clear();
+        accionesDesechas.clear();
+    }
+    
     
 }
