@@ -72,7 +72,8 @@ public class KenKen {
     }
     
     public boolean[][] validarSolucion(){
-        
+        boolean[][] matrizCorreccion= new boolean[6][6];
+        return matrizCorreccion;
     }
     
     
