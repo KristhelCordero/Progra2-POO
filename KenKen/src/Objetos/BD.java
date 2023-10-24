@@ -190,7 +190,7 @@ public class BD {
     public Accion mostrarUltimaAccionHecha(){
         return acciones.peek();
     }
-    public Accion mostrarUltimaAccionDesecha(){
+    public Accion mostrarUltimaAccionDeshecha(){
         return accionesDesechas.peek();
     }
     

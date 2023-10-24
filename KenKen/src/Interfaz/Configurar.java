@@ -4,6 +4,10 @@
  */
 package Interfaz;
 
+import static Interfaz.MenuPrincipal.bd;
+import Objetos.Configuracion;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author krisc
@@ -283,7 +287,23 @@ public class Configurar extends javax.swing.JFrame {
     }//GEN-LAST:event_jRBmedioActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        
+        boolean posicion, sonido;
+        int dificultad, reloj;
+        if(jRBfacil.isSelected()){
+           dificultad=1;
+        }else if (jRBmedio.isSelected()){
+            dificultad=2;
+        }else{dificultad=3;}
+        posicion = !jRBIzquierda.isSelected();
+        sonido= !jRBno.isSelected();
+        if (jRBcronometro.isSelected()){
+            reloj=1;
+        }else if(jRBtimer.isSelected()){
+            reloj=2;
+        }else{reloj=3;}
+        Configuracion config=new Configuracion(posicion, sonido, dificultad, reloj);
+        bd.setConfiguracion(config);
+        JOptionPane.showMessageDialog(null, "Su configuración ha sido guardada");
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed

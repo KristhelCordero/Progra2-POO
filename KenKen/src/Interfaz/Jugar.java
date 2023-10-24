@@ -8,6 +8,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import Objetos.*;
+import java.applet.AudioClip;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import static java.lang.System.in;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -1346,7 +1353,12 @@ public class Jugar extends javax.swing.JFrame {
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
         validarKenKen(solucion);
         if(todosTrue(solucion)){
-            JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); //Falta el sonidito
+            if(bd.getConfiguracion().isSonido()){
+                AudioClip sonido;
+                sonido=java.applet.Applet.newAudioClip(getClass().getResource("src/sonido/aplausos.wav"));
+                sonido.play();
+            }
+            JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); 
         }else{
             int dialogResult = JOptionPane.showConfirmDialog(this, 
             "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
@@ -1359,20 +1371,28 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
-        Accion accionDesecha=bd.peek();
-        Accion accion=bd.deshacerAccion();
-        
-        if (accion!=null){
-            matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
-            this.repaint();
+        Accion accionDeshecha=bd.mostrarUltimaAccionHecha();
+        if (accionDeshecha!=null){
+            String dato=matrizDeLabels[accionDeshecha.getFila()][accionDeshecha.getColumna()].getText();
+            Accion accionExtraNoTanExtra=new Accion(accionDeshecha.getFila(),accionDeshecha.getColumna(),dato);
+            Accion accion=bd.deshacerAccion(accionExtraNoTanExtra);
+            if (accion!=null){
+                matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
+                this.repaint();
+            }
         }
     }//GEN-LAST:event_jButtonUndoActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
-        Accion accion=bd.rehacerAccion(); //No sé porque pero no hace nah
-        if (accion!=null){
-            matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
-            this.repaint();
+        Accion accionHecha=bd.mostrarUltimaAccionDeshecha();
+        if(accionHecha!=null){
+            String dato=matrizDeLabels[accionHecha.getFila()][accionHecha.getColumna()].getText();
+            Accion accionExtraNoTanExtra=new Accion(accionHecha.getFila(),accionHecha.getColumna(),dato);
+            Accion accion=bd.rehacerAccion(accionExtraNoTanExtra); //No sé porque pero no hace nah
+            if (accion!=null){
+                matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
+                this.repaint();
+            }
         }
     }//GEN-LAST:event_jButtonRedoActionPerformed
 
