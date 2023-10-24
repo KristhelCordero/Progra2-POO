@@ -4,6 +4,8 @@
  */
 package Objetos;
 
+import java.util.Objects;
+
 /**
  *
  * @author Usuario
@@ -60,6 +62,41 @@ public class Accion {
     public void setDato(String dato) {
         this.dato = dato;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.fila;
+        hash = 79 * hash + this.columna;
+        hash = 79 * hash + (this.agregar ? 1 : 0);
+        hash = 79 * hash + Objects.hashCode(this.dato);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Accion other = (Accion) obj;
+        if (this.fila != other.fila) {
+            return false;
+        }
+        if (this.columna != other.columna) {
+            return false;
+        }
+        if (this.agregar != other.agregar) {
+            return false;
+        }
+        return Objects.equals(this.dato, other.dato);
+    }
+    
     
     
     
