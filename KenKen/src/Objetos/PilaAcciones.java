@@ -32,8 +32,8 @@ public class PilaAcciones{
         }
     }
     
-    public NodoAccion peek(){
-        return top;
+    public Accion peek(){
+        return top.dato;
     }
 
     public void clear(){

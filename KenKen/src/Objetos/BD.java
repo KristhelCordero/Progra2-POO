@@ -187,6 +187,13 @@ public class BD {
         return null;
     }
     
+    public Accion mostrarUltimaAccionHecha(){
+        return acciones.peek();
+    }
+    public Accion mostrarUltimaAccionDesecha(){
+        return accionesDesechas.peek();
+    }
+    
     public void limpiarPilas(){
         acciones.clear();
         accionesDesechas.clear();
