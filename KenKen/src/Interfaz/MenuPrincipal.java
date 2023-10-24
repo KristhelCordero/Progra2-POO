@@ -40,7 +40,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButtonJugar = new javax.swing.JButton();
         jButtonConfigurar = new javax.swing.JButton();
         jButtonAyuda = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonAcercaDe = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -86,10 +86,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(76, 96, 65));
-        jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Acerca De");
+        jButtonAcercaDe.setBackground(new java.awt.Color(76, 96, 65));
+        jButtonAcercaDe.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButtonAcercaDe.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAcercaDe.setText("Acerca De");
+        jButtonAcercaDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAcercaDeActionPerformed(evt);
+            }
+        });
 
         jButtonSalir.setBackground(new java.awt.Color(76, 96, 65));
         jButtonSalir.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -111,7 +116,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jButtonAyuda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonConfigurar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                    .addComponent(jButtonAcercaDe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
                     .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
                 .addContainerGap(135, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -131,7 +136,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jButtonAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButtonAcercaDe, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59))
@@ -180,6 +185,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonJugarActionPerformed
 
+    private void jButtonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcercaDeActionPerformed
+        AcercaDe menuAcercaDe=new AcercaDe();
+        menuAcercaDe.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonAcercaDeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -216,7 +227,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAcercaDe;
     private javax.swing.JButton jButtonAyuda;
     private javax.swing.JButton jButtonConfigurar;
     private javax.swing.JButton jButtonJugar;

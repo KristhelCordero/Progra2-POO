@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Objetos;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,9 +24,10 @@ import org.xml.sax.SAXException;
 public class BD { 
     Configuracion configuracion;
     List<KenKen> listaKenKen = new ArrayList<>();
+    String kenKenActual="src/imagenes/";
     
     public void BD(){
-       extraerXMLListaKenKen();
+        extraerXMLListaKenKen();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
@@ -57,9 +56,7 @@ public class BD {
         this.listaKenKen = listaKenKen;
     }
     
-    
     //KENKEN
-    
     public KenKen convertirNodoEnKenKen(Element eHijo){
         KenKen kenken= new KenKen();
         NodeList nietos= eHijo.getChildNodes();
@@ -86,8 +83,8 @@ public class BD {
             }
         }
         return kenken;
-        
     }
+    
     public void extraerXMLListaKenKen(){
         //String dirXMl=KenKen\kenken.xml;
         try{
@@ -115,21 +112,36 @@ public class BD {
                             }
                         }
                     }
-                }
-                
+                } 
             }
-            }catch(ParserConfigurationException | SAXException | IOException ex){
-                System.out.println("No se pudo leer el XML");
-            }
-        
+        }catch(ParserConfigurationException | SAXException | IOException ex){
+            System.out.println("No se pudo leer el XML");
+        }
     }
     
-public void imprimirListaKenKen(){
-    System.out.println("llega");
-    for(KenKen kenken: listaKenKen){
-        kenken.imprimir();
+    public void imprimirListaKenKen(){
+        System.out.println("llega");
+        for(KenKen kenken: listaKenKen){
+            kenken.imprimir();
+        }
     }
-}
-
+    
+    public String extraerKenKenActual(){
+        Random rand = new Random();
+        String nombre = null;
+        int dificultad=rand.nextInt(3) + 1;
+        int numeroKenKen = rand.nextInt(3) + 1;
+        switch (dificultad) {
+            case 1 -> nombre+="E-";
+            case 2 -> nombre+="H-";
+            default -> nombre+="D-";
+        }
+        for(KenKen kenken:listaKenKen){
+            if(nombre.equals(kenken.getNombre())){
+                ;
+            }
+        }
+        return kenKenActual;
+    }
         
 }
