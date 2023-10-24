@@ -179,7 +179,7 @@ public class BD {
         return null;
     }
     public Accion rehacerAccion(){
-        if(!acciones.empty()){
+        if(!accionesDesechas.empty()){
             Accion accion = accionesDesechas.pop();
             acciones.push(accion);
             return accion;
