@@ -17,11 +17,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public static Objetos.BD bd = new Objetos.BD();
     
+    
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+        bd.extraerXMLListaKenKen();
+        bd.generarConfiguracionDefault();
         this.setLocationRelativeTo(this);
     }
 
