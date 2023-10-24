@@ -7,6 +7,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import Objetos.*;
 
 /**
  *
@@ -95,7 +96,7 @@ public class Jugar extends javax.swing.JFrame {
             for (int j=0;j<6;j++) {
                 if (matrizDeLabels[i][j].isOpaque()) {
                     texto=matrizDeLabels[i][j].getText();
-                    bd.annadirAccionBorrar(i, j, texto));
+                    bd.annadirAccionBorrar(i, j, texto);
                     matrizDeLabels[i][j].setText("");
                 }
             }
@@ -1071,6 +1072,7 @@ public class Jugar extends javax.swing.JFrame {
         MenuPrincipal inicio = new MenuPrincipal();
         inicio.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
 
     private void jLabel_1_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_1_1MouseClicked
@@ -1352,7 +1354,9 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
-        
+        Accion accion=bd.deshacerAccion();
+        matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
+        this.repaint();
     }//GEN-LAST:event_jButtonUndoActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
