@@ -172,7 +172,7 @@ public class BD {
     
     public Accion deshacerAccion(){
         if(!acciones.empty()){
-            Accion accion = acciones.pop().dato;
+            Accion accion = acciones.pop();
             accionesDesechas.push(accion);
             return accion;
         }
@@ -180,7 +180,7 @@ public class BD {
     }
     public Accion rehacerAccion(){
         if(!acciones.empty()){
-            Accion accion = accionesDesechas.pop().dato;
+            Accion accion = accionesDesechas.pop();
             acciones.push(accion);
             return accion;
         }
