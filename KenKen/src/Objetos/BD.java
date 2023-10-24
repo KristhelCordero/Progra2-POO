@@ -26,8 +26,8 @@ public class BD {
     List<KenKen> listaKenKen = new ArrayList<>();
      
     public void BD(){
-       extraerXMLListaKenKen();
-       generarConfiguracionDefault();
+       //extraerXMLListaKenKen();
+       //generarConfiguracionDefault();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
@@ -145,16 +145,18 @@ public class BD {
     }
     
     public KenKen buscarKenKen(String nombre){
-        nombre=nombre.substring(0, nombre.length() - 6);
+        nombre=nombre.substring(13, nombre.length() - 6);
         nombre+="com";
+        System.out.println(nombre);
         for(KenKen kenken:listaKenKen){
             System.out.println(kenken.nombre);
             if(kenken.nombre.equals(nombre)){
-                
-                return kenken;
+                System.out.println("equals");
+               return kenken;
             }
         }
         return null;
     }
-
+    
+    
 }
