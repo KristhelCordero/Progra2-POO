@@ -10,24 +10,24 @@ package Objetos;
  */
 public class Configuracion {
     
-    boolean posicion;//true: derecha; false: izquierda.
+    boolean posicionBarra;//true: derecha; false: izquierda.
     boolean sonido;
     int dificultad; //1:facil; 2: medio; 3:dificil.
     int reloj; //1: cronometro; 2: timer; 3: no.
 
     public Configuracion(boolean posicion, boolean sonido, int dificultad, int reloj) {
-        this.posicion = posicion;
+        this.posicionBarra = posicion;
         this.sonido = sonido;
         this.dificultad = dificultad;
         this.reloj = reloj;
     }
 
     public boolean isPosicion() {
-        return posicion;
+        return posicionBarra;
     }
 
     public void setPosicion(boolean posicion) {
-        this.posicion = posicion;
+        this.posicionBarra = posicion;
     }
 
     public boolean isSonido() {
@@ -55,9 +55,12 @@ public class Configuracion {
     }
     
     public void setConfiguracion(boolean posicion, boolean sonido, int dificultad, int reloj) {
-        this.posicion = posicion;
+        this.posicionBarra = posicion;
         this.sonido = sonido;
         this.dificultad = dificultad;
         this.reloj = reloj;
+    }
+    public void resetear() {
+        setConfiguracion(true,true,1,3);
     }
 }

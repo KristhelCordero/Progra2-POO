@@ -26,8 +26,10 @@ public class BD {
     List<KenKen> listaKenKen = new ArrayList<>();
     String kenKenActual="src/imagenes/";
     
+    
     public void BD(){
-        extraerXMLListaKenKen();
+       extraerXMLListaKenKen();
+       configuracion.resetear();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
@@ -143,5 +145,11 @@ public class BD {
         }
         return kenKenActual;
     }
+    //Configuracion
+    
+    public void generarConfiguracionDefault(){
+        configuracion.resetear();
+    }
+
         
 }
