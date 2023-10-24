@@ -170,18 +170,18 @@ public class BD {
         acciones.push(accion);
     }
     
-    public Accion deshacerAccion(){
+    public Accion deshacerAccion(Accion accionDesecha){
         if(!acciones.empty()){
             Accion accion = acciones.pop();
-            accionesDesechas.push(accion);
+            accionesDesechas.push(accionDesecha);
             return accion;
         }
         return null;
     }
-    public Accion rehacerAccion(){
+    public Accion rehacerAccion(Accion accionHecha){
         if(!accionesDesechas.empty()){
             Accion accion = accionesDesechas.pop();
-            acciones.push(accion);
+            acciones.push(accionHecha);
             return accion;
         }
         return null;
