@@ -24,6 +24,8 @@ import org.xml.sax.SAXException;
 public class BD { 
     Configuracion configuracion= new Configuracion();
     List<KenKen> listaKenKen = new ArrayList<>();
+    PilaAcciones acciones=new PilaAcciones();
+    PilaAcciones accionesDesechas=new PilaAcciones();
      
     public void BD(){
        //extraerXMLListaKenKen();
@@ -156,6 +158,28 @@ public class BD {
             }
         }
         return null;
+    }
+    
+    //ACCIONES
+    
+    public void annadirAccionEscribir(int fila, int columna){
+        Accion accion=new Accion(fila,columna);
+        acciones.push(accion);
+    }
+    public void annadirAccionBorrar(int fila, int columna, int dato){
+        Accion accion=new Accion(fila,columna,dato);
+        acciones.push(accion);
+    }
+    
+    public Accion deshacerAccion(){
+        Accion accion = acciones.pop().dato;
+        accionesDesechas.push(accion);
+        return accion;
+    }
+    public Accion rehacerAccion(){
+        Accion accion = accionesDesechas.pop().dato;
+        acciones.push(accion);
+        return accion;
     }
     
     

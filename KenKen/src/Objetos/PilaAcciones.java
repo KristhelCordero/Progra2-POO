@@ -5,17 +5,17 @@ package Objetos;
  *
  * @author Usuario
  */
-public class Pila<T> {
-    private Nodo cabezaLista;
-    private Nodo colaLista;
+public class PilaAcciones{
+    private NodoAccion cabezaLista;
+    private NodoAccion colaLista;
     
-    Pila(){
+    PilaAcciones(){
         cabezaLista=null;
         colaLista=null;
     }
     
-    public void push(T t){
-        Nodo nodo=new Nodo<T>();
+    public void push(Accion t){
+        NodoAccion nodo=new NodoAccion();
         nodo.dato=t;
         if(cabezaLista==null){
             cabezaLista=nodo;
@@ -28,7 +28,7 @@ public class Pila<T> {
     }
     
     public void imprimirLista(){
-        Nodo nodo;
+        NodoAccion nodo;
         nodo=cabezaLista;
         while (nodo!= null){
             System.out.println(nodo.dato);
@@ -36,11 +36,11 @@ public class Pila<T> {
         }
     }
     
-    public Nodo peek(){
+    public NodoAccion peek(){
         return colaLista;
     }
     
-    public Nodo peekLeft(){
+    public NodoAccion peekLeft(){
         return cabezaLista;
     }
     
@@ -53,22 +53,22 @@ public class Pila<T> {
         return cabezaLista == null;
     }
     
-    public Nodo pop(){
+    public NodoAccion pop(){
         if (colaLista==null){
             return null;
         }else{
-            Nodo tmp=colaLista;
+            NodoAccion tmp=colaLista;
             colaLista=colaLista.predecesor;
             colaLista.sucesor=null;
             return tmp;
         }
     }
     
-    public Nodo popLeft(){
+    public NodoAccion popLeft(){
         if (cabezaLista==null){
             return null;
         }else{
-            Nodo tmp=cabezaLista;
+            NodoAccion tmp=cabezaLista;
             cabezaLista=cabezaLista.sucesor;
             cabezaLista.predecesor=null;
             return tmp;
