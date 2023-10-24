@@ -1355,16 +1355,18 @@ public class Jugar extends javax.swing.JFrame {
 
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
         Accion accion=bd.deshacerAccion();
-        if (accion==null){
-        }else{
+        if (accion!=null){
             matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
             this.repaint();
         }
-        
     }//GEN-LAST:event_jButtonUndoActionPerformed
 
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
-        
+        Accion accion=bd.rehacerAccion();
+        if (accion!=null){
+            matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
+            this.repaint();
+        }
     }//GEN-LAST:event_jButtonRedoActionPerformed
 
     /**
