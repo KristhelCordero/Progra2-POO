@@ -25,7 +25,7 @@ public class BD {
     Configuracion configuracion= new Configuracion();
     List<KenKen> listaKenKen = new ArrayList<>();
     PilaAcciones acciones=new PilaAcciones();
-    PilaAcciones accionesDesechas=new PilaAcciones();
+    PilaAcciones accionesDeshechas=new PilaAcciones();
      
     public void BD(){
        //extraerXMLListaKenKen();
@@ -173,14 +173,14 @@ public class BD {
     public Accion deshacerAccion(Accion accionDesecha){
         if(!acciones.empty()){
             Accion accion = acciones.pop();
-            accionesDesechas.push(accionDesecha);
+            accionesDeshechas.push(accionDesecha);
             return accion;
         }
         return null;
     }
     public Accion rehacerAccion(Accion accionHecha){
-        if(!accionesDesechas.empty()){
-            Accion accion = accionesDesechas.pop();
+        if(!accionesDeshechas.empty()){
+            Accion accion = accionesDeshechas.pop();
             acciones.push(accionHecha);
             return accion;
         }
@@ -188,15 +188,21 @@ public class BD {
     }
     
     public Accion mostrarUltimaAccionHecha(){
-        return acciones.peek();
+        if (!acciones.empty()){
+            return acciones.peek();
+        }
+        return null;
     }
     public Accion mostrarUltimaAccionDesecha(){
-        return accionesDesechas.peek();
+        if (!accionesDeshechas.empty()){
+            return accionesDeshechas.peek();
+        }
+        return null;
     }
     
     public void limpiarPilas(){
         acciones.clear();
-        accionesDesechas.clear();
+        accionesDeshechas.clear();
     }
     
     
