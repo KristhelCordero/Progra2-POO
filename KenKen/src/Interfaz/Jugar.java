@@ -1359,7 +1359,9 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
 
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
+        Accion accionDesecha=bd.peek();
         Accion accion=bd.deshacerAccion();
+        
         if (accion!=null){
             matrizDeLabels[accion.getFila()][accion.getColumna()].setText(accion.getDato());
             this.repaint();

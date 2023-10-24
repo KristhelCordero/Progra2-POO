@@ -77,15 +77,15 @@ public class KenKen {
         
         for(int i=0; i<6;i++){
             for (int j=0; j<6;j++){
-                System.out.println(i);
-                System.out.println(j);
+                //System.out.println(i);
+                //System.out.println(j);
                 if(partida[i][j].getText().equals("")){
                     matrizCorreccion[i][j]=false;
                 }else{
-                    System.out.println(partida[i][j].getText());
-                matrizCorreccion[i][j]=(Integer.parseInt(partida[i][j].getText())
+                    //System.out.println(partida[i][j].getText());
+                    matrizCorreccion[i][j]=(Integer.parseInt(partida[i][j].getText())
                         ==solucion[i][j]);
-                    System.out.println("Holi");
+                    //System.out.println("Holi");
                 }
             }
         }
