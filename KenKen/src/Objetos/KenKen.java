@@ -68,7 +68,7 @@ public class KenKen {
         int columna = Integer.parseInt(partes[3].trim());
         System.out.println(valor+"\n"+fila+"\n"+columna);
 
-        solucion[fila][columna]=valor;
+        solucion[fila-1][columna-1]=valor;
     }
     
     

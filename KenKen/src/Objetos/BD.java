@@ -27,6 +27,10 @@ public class BD {
     Configuracion configuracion;
     List<KenKen> listaKenKen = new ArrayList<>();
     
+    public void BD(){
+        
+    }
+    
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
         List<KenKen> listaDificultad= new ArrayList<>();
         for(KenKen kenken:listaKenKen){
@@ -60,7 +64,9 @@ public class BD {
         KenKen kenken= new KenKen();
         NodeList nietos= eHijo.getChildNodes();
         for(int k=0; k<nietos.getLength();k++){
-            Node nieto = nietos.item(k);                  
+            System.out.println("Largo: "+nietos.getLength());
+            System.out.println("index: "+k);
+            Node nieto = nietos.item(k);
             if(nieto.getNodeType()==Node.ELEMENT_NODE){
                 System.out.println("Se evalua el nodo"+nieto.getNodeName());
                 if("codigo".equals(nieto.getNodeName())){
