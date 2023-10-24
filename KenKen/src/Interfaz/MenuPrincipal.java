@@ -11,7 +11,12 @@ import javax.swing.JOptionPane;
  * @author krisc
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-    public static objetos.BD bd=new objetos.BD();
+
+    /**
+     *
+     */
+    public static Objetos.BD bd = new Objetos.BD();
+    
     /**
      * Creates new form MenuPrincipal
      */
