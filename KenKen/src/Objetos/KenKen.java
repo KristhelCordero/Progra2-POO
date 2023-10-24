@@ -77,9 +77,12 @@ public class KenKen {
         
         for(int i=0; i<6;i++){
             for (int j=0; j<6;i++){
+                if(partida[i][j].getText()==null){
+                    matrizCorreccion[i][j]=false;
+                }else{
                 matrizCorreccion[i][j]=(Integer.parseInt(partida[i][j].getText())
                         ==solucion[i][j]);
-                
+                }
             }
         }
         return matrizCorreccion;
