@@ -30,7 +30,7 @@ public class BD {
     
     public void BD(){
        extraerXMLListaKenKen();
-       configuracion.resetear();
+       generarConfiguracionDefault();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
