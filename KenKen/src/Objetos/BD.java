@@ -134,9 +134,9 @@ public class BD {
         int dificultad=rand.nextInt(3) + 1;
         int numeroKenKen = rand.nextInt(3) + 1;
         switch (dificultad) {
-            case 1 -> nombre+="E-";
-            case 2 -> nombre+="H-";
-            default -> nombre+="D-";
+            case 1 -> nombre+="E-"+Integer.toString(numeroKenKen)+"_in.png";
+            case 2 -> nombre+="H-"+Integer.toString(numeroKenKen)+"_in.png";
+            default -> nombre+="D-"+Integer.toString(numeroKenKen)+"_in.png";
         }
         for(KenKen kenken:listaKenKen){
             if(nombre.equals(kenken.getNombre())){
