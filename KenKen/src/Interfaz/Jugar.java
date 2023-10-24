@@ -1345,7 +1345,7 @@ public class Jugar extends javax.swing.JFrame {
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
         validarKenKen(solucion);
         if(todosTrue(solucion)){
-            
+            JOptionPane.showMessageDialog(null, "FELICIDADES, JUEGO COMPLETADO"); //Falta el sonidito
         }else{
             int dialogResult = JOptionPane.showConfirmDialog(this, 
             "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 

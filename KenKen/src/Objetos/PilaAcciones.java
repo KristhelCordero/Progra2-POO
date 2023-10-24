@@ -48,7 +48,7 @@ public class PilaAcciones{
     }
     
     public boolean empty(){
-        return cabezaLista == null;
+        return colaLista == null; 
     }
     
     public NodoAccion pop(){

@@ -172,9 +172,9 @@ public class BD {
     
     public Accion deshacerAccion(){
         if(!acciones.empty()){
-        Accion accion = acciones.pop().dato;
-        accionesDesechas.push(accion);
-        return accion;
+            Accion accion = acciones.pop().dato;
+            accionesDesechas.push(accion);
+            return accion;
         }
         return null;
     }
