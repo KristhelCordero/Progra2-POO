@@ -27,8 +27,10 @@ public class BD {
     Configuracion configuracion;
     List<KenKen> listaKenKen = new ArrayList<>();
     
+    
     public void BD(){
        extraerXMLListaKenKen();
+       configuracion.resetear();
     }
     
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
@@ -115,21 +117,25 @@ public class BD {
                             }
                         }
                     }
-                }
-                
+                }  
             }
             }catch(ParserConfigurationException | SAXException | IOException ex){
                 System.out.println("No se pudo leer el XML");
-            }
-        
+            }  
     }
     
-public void imprimirListaKenKen(){
-    System.out.println("llega");
-    for(KenKen kenken: listaKenKen){
-        kenken.imprimir();
+    public void imprimirListaKenKen(){
+        System.out.println("llega");
+        for(KenKen kenken: listaKenKen){
+            kenken.imprimir();
+        }
     }
-}
+    
+    //Configuracion
+    
+    public void generarConfiguracionDefault(){
+        configuracion.resetear();
+    }
 
         
 }

@@ -71,6 +71,10 @@ public class KenKen {
         solucion[fila-1][columna-1]=valor;
     }
     
+    public boolean[][] validarSolucion(){
+        
+    }
+    
     
 
     
