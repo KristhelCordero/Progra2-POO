@@ -114,12 +114,15 @@ public class Jugar extends javax.swing.JFrame {
         actualizarLabel();
         if(segundos==0 && minutos==0 && horas==0 && milisegundos==0){
             int dialogResult = JOptionPane.showConfirmDialog(this, 
-            "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
+            "TIEMPO EXPIRADO ¿Desea continuar el mismo juego?", 
             "Confirmación", JOptionPane.YES_NO_OPTION);
             if (dialogResult == JOptionPane.YES_OPTION) {
-                
+               //empezar el cronometro en el tiempo inicial del timer 
+               cronometro.start();
             }else{
-                
+               MenuPrincipal inicio = new MenuPrincipal();
+               inicio.setVisible(true);
+               this.dispose();
             }
         }
     }
@@ -1204,8 +1207,7 @@ public class Jugar extends javax.swing.JFrame {
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
         MenuPrincipal inicio = new MenuPrincipal();
         inicio.setVisible(true);
-        this.dispose();
-        
+        this.dispose();  
     }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
 
     private void jLabel_1_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_1_1MouseClicked
