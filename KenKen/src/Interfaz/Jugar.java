@@ -112,6 +112,16 @@ public class Jugar extends javax.swing.JFrame {
     private void iniciarTimer(){
         actualizarTimer();
         actualizarLabel();
+        if(segundos==0 && minutos==0 && horas==0 && milisegundos==0){
+            int dialogResult = JOptionPane.showConfirmDialog(this, 
+            "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
+            "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (dialogResult == JOptionPane.YES_OPTION) {
+                
+            }else{
+                
+            }
+        }
     }
     
     private void reiniciarCronometro(){
