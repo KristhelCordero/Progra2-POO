@@ -27,11 +27,11 @@ import javax.swing.Timer;
  */
 public class Jugar extends javax.swing.JFrame {
     private JLabel[][] matrizDeLabels;
-    private boolean iniciado;
+    private boolean iniciado, finalizadoTimer;
     private final String kenken=bd.extraerKenKenActual();
     private Timer cronometro, timer;
     private int horas=0;
-    private int minutos=0;
+    private int minutos=1;
     private int segundos=0;
     private int milisegundos=67;
     /**
@@ -44,13 +44,23 @@ public class Jugar extends javax.swing.JFrame {
         this.definirColorLabels();
         this.setLocationRelativeTo(this);
         iniciado=false;
+        finalizadoTimer=false;
         setImageLabel(kenken);
-        cronometro=new Timer(10, (ActionEvent e) -> {
-            iniciarCronometro();
-        });
-        timer=new Timer(10, (ActionEvent e) -> {
-            iniciarTimer();
-        });
+        bd.getConfiguracion().setReloj(2);
+        switch (bd.getConfiguracion().getReloj()) {
+            case 1:
+                cronometro=new Timer(10, (ActionEvent e) -> {
+                    iniciarCronometro();
+                }); break;
+            case 2:
+                timer=new Timer(10, (ActionEvent e) -> {
+                    iniciarTimer();
+                });
+                break;
+            default:
+                jLabelTiempo.setText(null);
+                break;
+        }
     }
     
     private void actualizarCronometro(){
@@ -73,33 +83,32 @@ public class Jugar extends javax.swing.JFrame {
     }
     
     private void actualizarTimer(){
-        while (!(horas == 0 && minutos == 0 && segundos == 0 && milisegundos == 0)) {
-            if (milisegundos == 0) {
-                if (segundos == 0) {
-                    if (minutos == 0) {
-                        if (horas == 0) {
-                            break;
-                        }else{
-                            horas--;
-                            minutos = 59;
-                            segundos = 59;
-                        }
-                    }else{
-                        minutos--;
+        if (milisegundos == 0) {
+            if (segundos == 0) {
+                if (minutos == 0) {
+                    if (horas == 0) {
+                        finalizadoTimer=true;
+                    } else {
+                        horas--;
+                        minutos = 59;
                         segundos = 59;
                     }
-                }else{
-                    segundos--;
+                } else {
+                    minutos--;
+                    segundos = 59;
                 }
-                milisegundos = 67;
-            }else{
-                milisegundos--;
+            } else {
+                segundos--;
             }
+            milisegundos = 67;
+        } else {
+            milisegundos--;
         }
     }
     
+    
     private void actualizarLabel(){
-        String cronometro = String.format("%02d:%02d:%02d.%03d%n", horas, minutos, segundos, milisegundos);
+        String cronometro = horas+" : "+ minutos+" : "+ segundos;
         jLabelTiempo.setText(cronometro);
         this.repaint();
     }
@@ -110,19 +119,21 @@ public class Jugar extends javax.swing.JFrame {
     }
     
     private void iniciarTimer(){
-        actualizarTimer();
-        actualizarLabel();
-        if(segundos==0 && minutos==0 && horas==0 && milisegundos==0){
-            int dialogResult = JOptionPane.showConfirmDialog(this, 
-            "TIEMPO EXPIRADO ¿Desea continuar el mismo juego?", 
-            "Confirmación", JOptionPane.YES_NO_OPTION);
-            if (dialogResult == JOptionPane.YES_OPTION) {
-               //empezar el cronometro en el tiempo inicial del timer 
-               cronometro.start();
+        if(!finalizadoTimer){
+            actualizarLabel();
+            actualizarTimer();
+        }else{
+            timer.stop();
+            int dialogButton=JOptionPane.YES_NO_OPTION;
+                JOptionPane.showConfirmDialog(null,
+                "TIEMPO EXPIRADO! Desea coninuar con este mismo juego?",
+                "Confirmación",dialogButton);
+            if(dialogButton==JOptionPane.YES_OPTION){
+                //iniciar el crono
             }else{
-               MenuPrincipal inicio = new MenuPrincipal();
-               inicio.setVisible(true);
-               this.dispose();
+                MenuPrincipal inicio = new MenuPrincipal();
+                inicio.setVisible(true);
+                this.dispose();
             }
         }
     }
@@ -1193,8 +1204,6 @@ public class Jugar extends javax.swing.JFrame {
         bd.limpiarPilas();
         if(cronometro.isRunning()){
             reiniciarCronometro();
-        }else if(timer.isRunning()){
-            //reiniciarTimer();
         }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
@@ -1431,9 +1440,8 @@ public class Jugar extends javax.swing.JFrame {
             System.out.println("Entré al if");
             cronometro.start();
         }else if(bd.getConfiguracion().getReloj()==2){
-            //timer
+            timer.start();
         }
-        timer.start();
         iniciado=true;
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
@@ -1503,7 +1511,7 @@ public class Jugar extends javax.swing.JFrame {
                 desOpacarLabels();
                 definirColorLabels();
                 //cronometro.start();
-                timer.stop();
+                timer.start();
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
