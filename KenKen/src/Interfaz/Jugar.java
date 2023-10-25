@@ -46,7 +46,7 @@ public class Jugar extends javax.swing.JFrame {
         iniciado=false;
         finalizadoTimer=false;
         setImageLabel(kenken);
-        bd.getConfiguracion().setReloj(2);
+        //bd.getConfiguracion().setReloj(2);
         switch (bd.getConfiguracion().getReloj()) {
             case 1:
                 cronometro=new Timer(10, (ActionEvent e) -> {
