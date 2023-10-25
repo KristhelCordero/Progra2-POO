@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import Objetos.*;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
@@ -16,6 +18,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.Timer;
 
 
 /**
@@ -26,6 +29,11 @@ public class Jugar extends javax.swing.JFrame {
     private JLabel[][] matrizDeLabels;
     private boolean iniciado;
     private final String kenken=bd.extraerKenKenActual();
+    private Timer cronometro;
+    private int horas=0;
+    private int minutos=0;
+    private int segundos=0;
+    private int milisegundos=0;
     /**
      * Creates new form Jugar
      */
@@ -37,6 +45,46 @@ public class Jugar extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         iniciado=false;
         setImageLabel(kenken);
+        cronometro=new Timer(10, (ActionEvent e) -> {
+            iniciarCronometro();
+        });
+    }
+    
+    private void actualizarTiempo(){
+        milisegundos++;
+        if(milisegundos==67){
+            milisegundos=0;
+            segundos++;
+        }
+        if(segundos==60){
+            segundos=0;
+            minutos++;
+        }
+        if(minutos==60){
+            minutos=0;
+            horas++;
+        }
+        if(horas==24){
+            horas=0;
+        }
+    }
+    
+    private void actualizarLabel(){
+        String cronometro= horas+" : "+minutos+" : "+segundos;
+        jLabelTiempo.setText(cronometro);
+        this.repaint();
+    }
+    
+    private void iniciarCronometro(){
+        actualizarTiempo();
+        actualizarLabel();
+    }
+    
+    private void reiniciarCronometro(){
+        milisegundos=0;
+        segundos=0;
+        minutos=0;
+        horas=0;
     }
     
     public void setImageLabel(String root){
@@ -274,6 +322,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonRedo = new javax.swing.JButton();
         jButtonReiniciarJuego = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
+        jLabelTiempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -797,7 +846,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/1.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -809,7 +858,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/2.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -820,7 +869,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/3.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -831,7 +880,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/5.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -842,7 +891,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/6.png"))); // NOI18N
         jButton6.setBorder(null);
         jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton6.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -853,7 +902,7 @@ public class Jugar extends javax.swing.JFrame {
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/4.png"))); // NOI18N
         jButton4.setBorder(null);
         jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -864,7 +913,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonBorrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/eraser.png"))); // NOI18N
         jButtonBorrador.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 6, true));
         jButtonBorrador.setContentAreaFilled(false);
-        jButtonBorrador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonBorrador.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonBorrador.setPreferredSize(new java.awt.Dimension(40, 40));
         jButtonBorrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -920,7 +969,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonIniciarJuego.setForeground(new java.awt.Color(53, 65, 42));
         jButtonIniciarJuego.setText("Iniciar Juego");
         jButtonIniciarJuego.setBorder(null);
-        jButtonIniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonIniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonIniciarJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarJuegoActionPerformed(evt);
@@ -932,7 +981,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonOtroJuego.setForeground(new java.awt.Color(53, 65, 42));
         jButtonOtroJuego.setText("Otro Juego");
         jButtonOtroJuego.setBorder(null);
-        jButtonOtroJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonOtroJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonOtroJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonOtroJuegoActionPerformed(evt);
@@ -944,7 +993,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonTerminarJuego.setForeground(new java.awt.Color(53, 65, 42));
         jButtonTerminarJuego.setText("Terminar Juego");
         jButtonTerminarJuego.setBorder(null);
-        jButtonTerminarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonTerminarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonTerminarJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonTerminarJuegoActionPerformed(evt);
@@ -956,7 +1005,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonValidarJuego.setForeground(new java.awt.Color(53, 65, 42));
         jButtonValidarJuego.setText("Validar Juego");
         jButtonValidarJuego.setBorder(null);
-        jButtonValidarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonValidarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonValidarJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonValidarJuegoActionPerformed(evt);
@@ -968,7 +1017,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonUndo.setForeground(new java.awt.Color(53, 65, 42));
         jButtonUndo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/undo.png"))); // NOI18N
         jButtonUndo.setBorder(null);
-        jButtonUndo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonUndo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonUndo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUndoActionPerformed(evt);
@@ -980,7 +1029,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonRedo.setForeground(new java.awt.Color(53, 65, 42));
         jButtonRedo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/redo.png"))); // NOI18N
         jButtonRedo.setBorder(null);
-        jButtonRedo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonRedo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonRedo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRedoActionPerformed(evt);
@@ -992,7 +1041,7 @@ public class Jugar extends javax.swing.JFrame {
         jButtonReiniciarJuego.setForeground(new java.awt.Color(53, 65, 42));
         jButtonReiniciarJuego.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesBotones/restart.png"))); // NOI18N
         jButtonReiniciarJuego.setBorder(null);
-        jButtonReiniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonReiniciarJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonReiniciarJuego.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonReiniciarJuegoActionPerformed(evt);
@@ -1001,15 +1050,25 @@ public class Jugar extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(227, 239, 221));
 
+        jLabelTiempo.setFont(new java.awt.Font("Lucida Sans Unicode", 1, 42)); // NOI18N
+        jLabelTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTiempo.setText("00 : 00 : 00");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabelTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabelTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1084,7 +1143,9 @@ public class Jugar extends javax.swing.JFrame {
         quitarTextoLabels();
         definirColorLabels();
         bd.limpiarPilas();
-        //reiniciar el timer o cronómetro
+        if(cronometro.isRunning()){
+            
+        }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -1317,7 +1378,12 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel_6_6MouseClicked
 
     private void jButtonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarJuegoActionPerformed
-        // Iniciar Timer o Cronometro
+        if(bd.getConfiguracion().getReloj()==1){
+            System.out.println("Entré al if");
+            cronometro.start();
+        }else if(bd.getConfiguracion().getReloj()==2){
+            //timer
+        }
         iniciado=true;
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
@@ -1371,6 +1437,7 @@ public class Jugar extends javax.swing.JFrame {
         boolean[][] solucion;
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
         validarKenKen(solucion);
+        cronometro.stop();
         if(todosTrue(solucion)){
             if(bd.getConfiguracion().isSonido()){
                 playMusic();
@@ -1384,6 +1451,7 @@ public class Jugar extends javax.swing.JFrame {
             if (dialogResult == JOptionPane.YES_OPTION) {
                 desOpacarLabels();
                 definirColorLabels();
+                cronometro.start();
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
@@ -1465,6 +1533,7 @@ public class Jugar extends javax.swing.JFrame {
     private javax.swing.JButton jButtonUndo;
     private javax.swing.JButton jButtonValidarJuego;
     private javax.swing.JLabel jLabelKenKen;
+    private javax.swing.JLabel jLabelTiempo;
     private javax.swing.JLabel jLabel_1_1;
     private javax.swing.JLabel jLabel_1_2;
     private javax.swing.JLabel jLabel_1_3;
