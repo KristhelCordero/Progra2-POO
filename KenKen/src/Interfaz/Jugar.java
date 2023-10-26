@@ -39,6 +39,7 @@ public class Jugar extends javax.swing.JFrame {
      */
     public Jugar() {
         initComponents();
+        jButtonValidarJuego.setEnabled(false);
         matrizDeLabels= new JLabel[6][6];
         this.crearMatrizLabels();
         this.definirColorLabels();
@@ -48,24 +49,23 @@ public class Jugar extends javax.swing.JFrame {
         setImageLabel(kenken);
         //bd.getConfiguracion().setReloj(2);
         switch (bd.getConfiguracion().getReloj()) {
-            case 1:
+            case 3:
+                jLabelTiempo.setText(null);
+                break;
+            default:
                 cronometro=new Timer(10, (ActionEvent e) -> {
                     iniciarCronometro();
-                }); break;
-            case 2:
+                }); 
                 timer=new Timer(10, (ActionEvent e) -> {
                     iniciarTimer();
                 });
-                break;
-            default:
-                jLabelTiempo.setText(null);
                 break;
         }
     }
     
     private void actualizarCronometro(){
         milisegundos++;
-        if(milisegundos==67){
+        if(milisegundos>=67){
             milisegundos=0;
             segundos++;
         }
@@ -129,7 +129,11 @@ public class Jugar extends javax.swing.JFrame {
                 "TIEMPO EXPIRADO! Desea coninuar con este mismo juego?",
                 "Confirmación",dialogButton);
             if(dialogButton==JOptionPane.YES_OPTION){
-                //iniciar el crono
+                horas=bd.getConfiguracion().getTimer().getHora();
+                minutos=bd.getConfiguracion().getTimer().getMinuto();
+                segundos=bd.getConfiguracion().getTimer().getSegundo();
+                milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
+                cronometro.start();
             }else{
                 MenuPrincipal inicio = new MenuPrincipal();
                 inicio.setVisible(true);
@@ -879,7 +883,7 @@ public class Jugar extends javax.swing.JFrame {
         jPanel1.add(jLabel_1_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 100, 107));
 
         jLabel_1_1.setBackground(new java.awt.Color(209, 232, 239));
-        jLabel_1_1.setFont(new java.awt.Font("Gadugi", 1, 48)); // NOI18N
+        jLabel_1_1.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
         jLabel_1_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel_1_1.setToolTipText("");
         jLabel_1_1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -1204,8 +1208,14 @@ public class Jugar extends javax.swing.JFrame {
         bd.limpiarPilas();
         if(bd.getConfiguracion().getReloj()==1){
             reiniciarCronometro();
+            cronometro.start();
         }else if (bd.getConfiguracion().getReloj()==2){
-            //reiniciarTimer();
+            timer.stop();
+            horas=bd.getConfiguracion().getTimer().getHora();
+            minutos=bd.getConfiguracion().getTimer().getMinuto();
+            segundos=bd.getConfiguracion().getTimer().getSegundo();
+            milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
+            timer.start();
         }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
@@ -1444,6 +1454,8 @@ public class Jugar extends javax.swing.JFrame {
             timer.start();
         }
         iniciado=true;
+        jButtonIniciarJuego.setEnabled(false);
+        jButtonValidarJuego.setEnabled(true);
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
