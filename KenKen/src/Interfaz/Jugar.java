@@ -27,9 +27,9 @@ import javax.swing.Timer;
  */
 public class Jugar extends javax.swing.JFrame {
     private JLabel[][] matrizDeLabels;
-    private boolean iniciado;
+    private boolean iniciado, finalizadoTimer;
     private final String kenken=bd.extraerKenKenActual();
-    private Timer cronometro;
+    private Timer cronometro, timer;
     private int horas=0;
     private int minutos=0;
     private int segundos=0;
@@ -44,13 +44,26 @@ public class Jugar extends javax.swing.JFrame {
         this.definirColorLabels();
         this.setLocationRelativeTo(this);
         iniciado=false;
+        finalizadoTimer=false;
         setImageLabel(kenken);
-        cronometro=new Timer(10, (ActionEvent e) -> {
-            iniciarCronometro();
-        });
+        //bd.getConfiguracion().setReloj(2);
+        switch (bd.getConfiguracion().getReloj()) {
+            case 1:
+                cronometro=new Timer(10, (ActionEvent e) -> {
+                    iniciarCronometro();
+                }); break;
+            case 2:
+                timer=new Timer(10, (ActionEvent e) -> {
+                    iniciarTimer();
+                });
+                break;
+            default:
+                jLabelTiempo.setText(null);
+                break;
+        }
     }
     
-    private void actualizarTiempo(){
+    private void actualizarCronometro(){
         milisegundos++;
         if(milisegundos==67){
             milisegundos=0;
@@ -69,18 +82,64 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    private void actualizarTimer(){
+        if (milisegundos == 0) {
+            if (segundos == 0) {
+                if (minutos == 0) {
+                    if (horas == 0) {
+                        finalizadoTimer=true;
+                    } else {
+                        horas--;
+                        minutos = 59;
+                        segundos = 59;
+                    }
+                } else {
+                    minutos--;
+                    segundos = 59;
+                }
+            } else {
+                segundos--;
+            }
+            milisegundos = 67;
+        } else {
+            milisegundos--;
+        }
+    }
+    
+    
     private void actualizarLabel(){
-        String cronometro= horas+" : "+minutos+" : "+segundos;
+        String cronometro = horas+" : "+ minutos+" : "+ segundos;
         jLabelTiempo.setText(cronometro);
         this.repaint();
     }
     
     private void iniciarCronometro(){
-        actualizarTiempo();
+        actualizarCronometro();
         actualizarLabel();
     }
     
+    private void iniciarTimer(){
+        if(!finalizadoTimer){
+            actualizarLabel();
+            actualizarTimer();
+        }else{
+            timer.stop();
+            int dialogButton=JOptionPane.YES_NO_OPTION;
+                JOptionPane.showConfirmDialog(null,
+                "TIEMPO EXPIRADO! Desea coninuar con este mismo juego?",
+                "Confirmación",dialogButton);
+            if(dialogButton==JOptionPane.YES_OPTION){
+                //iniciar el crono
+            }else{
+                MenuPrincipal inicio = new MenuPrincipal();
+                inicio.setVisible(true);
+                this.dispose();
+            }
+        }
+    }
+    
     private void reiniciarCronometro(){
+        cronometro.stop();
         milisegundos=0;
         segundos=0;
         minutos=0;
@@ -1144,7 +1203,7 @@ public class Jugar extends javax.swing.JFrame {
         definirColorLabels();
         bd.limpiarPilas();
         if(cronometro.isRunning()){
-            
+            reiniciarCronometro();
         }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
@@ -1157,8 +1216,7 @@ public class Jugar extends javax.swing.JFrame {
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
         MenuPrincipal inicio = new MenuPrincipal();
         inicio.setVisible(true);
-        this.dispose();
-        
+        this.dispose();  
     }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
 
     private void jLabel_1_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_1_1MouseClicked
@@ -1382,7 +1440,7 @@ public class Jugar extends javax.swing.JFrame {
             System.out.println("Entré al if");
             cronometro.start();
         }else if(bd.getConfiguracion().getReloj()==2){
-            //timer
+            timer.start();
         }
         iniciado=true;
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
@@ -1437,7 +1495,8 @@ public class Jugar extends javax.swing.JFrame {
         boolean[][] solucion;
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
         validarKenKen(solucion);
-        cronometro.stop();
+        //cronometro.stop();
+        timer.stop();
         if(todosTrue(solucion)){
             if(bd.getConfiguracion().isSonido()){
                 playMusic();
@@ -1451,7 +1510,8 @@ public class Jugar extends javax.swing.JFrame {
             if (dialogResult == JOptionPane.YES_OPTION) {
                 desOpacarLabels();
                 definirColorLabels();
-                cronometro.start();
+                //cronometro.start();
+                timer.start();
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
