@@ -23,7 +23,10 @@ public class Configuracion {
     }
 
     Configuracion() {
-        setConfiguracion(true,true,1,3);
+        this.posicionBarra = true;
+        this.sonido = true;
+        this.dificultad = 1;
+        this.reloj = 3;
     }
 
     public boolean isPosicion() {
