@@ -21,7 +21,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         bd.extraerXMLListaKenKen();
-        bd.generarConfiguracionDefault();
         this.setLocationRelativeTo(this);
     }
 
