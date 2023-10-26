@@ -314,6 +314,7 @@ public class Configurar extends javax.swing.JFrame {
             reloj=1;
         }else if(jRBtimer.isSelected()){
             reloj=2;
+            
         }else{reloj=3;}
         Configuracion config=new Configuracion(posicion, sonido, dificultad, reloj);
         bd.setConfiguracion(config);
