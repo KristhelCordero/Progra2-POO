@@ -40,6 +40,8 @@ public class Jugar extends javax.swing.JFrame {
     public Jugar() {
         initComponents();
         jButtonValidarJuego.setEnabled(false);
+        jButtonTerminarJuego.setEnabled(false);
+        jButtonReiniciarJuego
         matrizDeLabels= new JLabel[6][6];
         this.crearMatrizLabels();
         this.definirColorLabels();
@@ -1226,9 +1228,15 @@ public class Jugar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
-        MenuPrincipal inicio = new MenuPrincipal();
-        inicio.setVisible(true);
-        this.dispose();  
+        int dialogButton=JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog(null,
+                "Está seguro que desea terminar este juego?",
+                "Confirmación",dialogButton);
+        if(dialogButton==JOptionPane.YES_OPTION){
+            MenuPrincipal inicio = new MenuPrincipal();
+            inicio.setVisible(true);
+            this.dispose(); 
+        }
     }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
 
     private void jLabel_1_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_1_1MouseClicked
@@ -1454,8 +1462,9 @@ public class Jugar extends javax.swing.JFrame {
             timer.start();
         }
         iniciado=true;
-        jButtonIniciarJuego.setEnabled(false);
         jButtonValidarJuego.setEnabled(true);
+        jButtonTerminarJuego.setEnabled(true);
+        jButtonIniciarJuego.setEnabled(false);
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
