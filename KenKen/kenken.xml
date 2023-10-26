@@ -234,8 +234,8 @@
         <celda>6, (6,2)</celda>
         <celda>5, (6,3)</celda>
         <celda>3, (6,4)</celda>
-        <celda>2, (6,5)</celda>
-        <celda>1, (6,6)</celda>
+        <celda>2, (6,6)</celda>
+        <celda>1, (6,5)</celda>
     </solucion>
     <partida>
         <codigo>H-2_in</codigo>
