@@ -32,7 +32,7 @@ public class Configuracion {
         this.posicionBarra = true;
         this.sonido = true;
         this.dificultad = 1;
-        this.reloj = 3;
+        this.reloj = 1;
         this.timer.resetearTimer();
     }
 
