@@ -30,10 +30,10 @@ public class Jugar extends javax.swing.JFrame {
     private boolean iniciado, finalizadoTimer;
     private final String kenken=bd.extraerKenKenActual();
     private Timer cronometro, timer;
-    private int horas=0;
-    private int minutos=0;
-    private int segundos=0;
-    private int milisegundos=0;
+    private int horas=bd.getConfiguracion().getTimer().getHora();
+    private int minutos=bd.getConfiguracion().getTimer().getMinuto();
+    private int segundos=bd.getConfiguracion().getTimer().getSegundo();
+    private int milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
     /**
      * Creates new form Jugar
      */
