@@ -186,11 +186,11 @@ public class Configurar extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel7.setText("Timer:");
 
-        jComboBoxMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        jComboBoxMinutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
 
-        jComboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
+        jComboBoxHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24" }));
 
-        jComboBoxSegundos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
+        jComboBoxSegundos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
 
         jLabel8.setText("Hora");
 
@@ -347,14 +347,17 @@ public class Configurar extends javax.swing.JFrame {
         }else{dificultad=3;}
         posicion = !jRBIzquierda.isSelected();
         sonido= !jRBno.isSelected();
+        int hora=0, minutos=0, segundos=0, milisegundos=0;
         if (jRBcronometro.isSelected()){
-            reloj=1;
+            reloj=1;    
         }else if(jRBtimer.isSelected()){
             reloj=2;
+            hora=Integer.parseInt(jComboBoxHora.getSelectedItem().toString());
+            minutos=Integer.parseInt(jComboBoxMinutos.getSelectedItem().toString());
+            segundos=Integer.parseInt(jComboBoxSegundos.getSelectedItem().toString());
+            milisegundos=67;
         }else{reloj=3;}
-        Objetos.Timer timer= new Objetos.Timer(Integer.parseInt(jComboBoxHora.getSelectedItem().toString()),
-                    Integer.parseInt(jComboBoxMinutos.getSelectedItem().toString()),
-                    Integer.parseInt(jComboBoxSegundos.getSelectedItem().toString()), 67);
+        Objetos.Timer timer= new Objetos.Timer(hora,minutos,segundos,milisegundos);
         Configuracion config=new Configuracion(posicion, sonido, dificultad, reloj, timer);
         bd.setConfiguracion(config);
         JOptionPane.showMessageDialog(null, "Su configuración ha sido guardada");

@@ -1202,8 +1202,10 @@ public class Jugar extends javax.swing.JFrame {
         quitarTextoLabels();
         definirColorLabels();
         bd.limpiarPilas();
-        if(cronometro.isRunning()){
+        if(bd.getConfiguracion().getReloj()==1){
             reiniciarCronometro();
+        }else if (bd.getConfiguracion().getReloj()==2){
+            //reiniciarTimer();
         }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
 
@@ -1437,7 +1439,6 @@ public class Jugar extends javax.swing.JFrame {
 
     private void jButtonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarJuegoActionPerformed
         if(bd.getConfiguracion().getReloj()==1){
-            System.out.println("Entré al if");
             cronometro.start();
         }else if(bd.getConfiguracion().getReloj()==2){
             timer.start();
@@ -1495,8 +1496,11 @@ public class Jugar extends javax.swing.JFrame {
         boolean[][] solucion;
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
         validarKenKen(solucion);
-        //cronometro.stop();
-        timer.stop();
+        if(bd.getConfiguracion().getReloj()==1){
+            cronometro.stop();
+        }else if(bd.getConfiguracion().getReloj()==2){
+            timer.stop();
+        }
         if(todosTrue(solucion)){
             if(bd.getConfiguracion().isSonido()){
                 playMusic();
@@ -1510,8 +1514,11 @@ public class Jugar extends javax.swing.JFrame {
             if (dialogResult == JOptionPane.YES_OPTION) {
                 desOpacarLabels();
                 definirColorLabels();
-                //cronometro.start();
-                timer.start();
+                if(bd.getConfiguracion().getReloj()==1){
+                    cronometro.start();
+                }else if(bd.getConfiguracion().getReloj()==2){
+                    timer.start();
+                }
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
