@@ -11,12 +11,14 @@ public class Configuracion {
     boolean sonido;
     int dificultad; //1:facil; 2: medio; 3:dificil.
     int reloj; //1: cronometro; 2: timer; 3: no.
+    Timer timer;
 
     public Configuracion(boolean posicion, boolean sonido, int dificultad, int reloj) {
         this.posicionBarra = posicion;
         this.sonido = sonido;
         this.dificultad = dificultad;
         this.reloj = reloj;
+        this.timer.recetearTimer();
     }
 
     Configuracion() {
@@ -24,6 +26,7 @@ public class Configuracion {
         this.sonido = true;
         this.dificultad = 1;
         this.reloj = 3;
+        this.timer.recetearTimer();
     }
 
     public boolean isPosicion() {
