@@ -178,10 +178,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAyudaActionPerformed
 
     private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed
-        Jugar juego= new Jugar();
-        //juego.setImageLabel("scr/imagenes/kenough.png");
-        juego.setVisible(true);
-        this.dispose();
+        if(bd.getConfiguracion().isPosicion()){
+            Jugar juego= new Jugar();
+            juego.setVisible(true);
+            this.dispose();
+        }else{
+            JugarIzquierda juego= new JugarIzquierda();
+            juego.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButtonJugarActionPerformed
 
     private void jButtonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcercaDeActionPerformed
