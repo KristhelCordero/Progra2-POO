@@ -20,6 +20,9 @@ public class Timer {
         this.segundo = segundo;
         this.milisegundo = milisegundo;
     }
+    public Timer() {
+
+    }
 
     public int getHora() {
         return hora;
@@ -53,7 +56,7 @@ public class Timer {
         this.milisegundo = milisegundo;
     }
     
-    public void recetearTimer(){
+    public void resetearTimer(){
         setHora(0);
         setMinuto(0);
         setSegundo(0);

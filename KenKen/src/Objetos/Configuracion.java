@@ -18,7 +18,7 @@ public class Configuracion {
         this.sonido = sonido;
         this.dificultad = dificultad;
         this.reloj = reloj;
-        this.timer.recetearTimer();
+        this.timer.resetearTimer();
     }
     public Configuracion(boolean posicion, boolean sonido, int dificultad, int reloj, Timer timer) {
         this.posicionBarra = posicion;
@@ -33,7 +33,7 @@ public class Configuracion {
         this.sonido = true;
         this.dificultad = 1;
         this.reloj = 3;
-        this.timer.recetearTimer();
+        this.timer.resetearTimer();
     }
 
     public boolean isPosicion() {
