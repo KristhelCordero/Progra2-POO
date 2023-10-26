@@ -11,7 +11,7 @@ public class Configuracion {
     boolean sonido;
     int dificultad; //1:facil; 2: medio; 3:dificil.
     int reloj; //1: cronometro; 2: timer; 3: no.
-    Timer timer;
+    Timer timer=new timer();
 
     public Configuracion(boolean posicion, boolean sonido, int dificultad, int reloj) {
         this.posicionBarra = posicion;
