@@ -20,6 +20,13 @@ public class Configuracion {
         this.reloj = reloj;
         this.timer.recetearTimer();
     }
+    public Configuracion(boolean posicion, boolean sonido, int dificultad, int reloj, Timer timer) {
+        this.posicionBarra = posicion;
+        this.sonido = sonido;
+        this.dificultad = dificultad;
+        this.reloj = reloj;
+        this.timer= timer;
+    }
 
     public Configuracion() {
         this.posicionBarra = true;
