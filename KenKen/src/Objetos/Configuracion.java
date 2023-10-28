@@ -31,11 +31,7 @@ public class Configuracion implements Serializable{
     }
 
     public Configuracion() {
-        this.posicionBarra = true;
-        this.sonido = true;
-        this.dificultad = 1;
-        this.reloj = 1 ;
-        this.timer.resetearTimer();
+        resetear();
     }
 
     public boolean isPosicion() {
@@ -94,8 +90,18 @@ public class Configuracion implements Serializable{
         this.dificultad = dificultad;
         this.reloj = reloj;
     }
+    public void copiarConfiguracion(Configuracion configuracion) {
+        setConfiguracion(configuracion.posicionBarra,
+                configuracion.sonido,
+                configuracion.dificultad,
+                configuracion.dificultad);
+    }
     public void resetear() {
-        setConfiguracion(true,true,1,3);
+        Configuracion confDef = Funciones.leerArchivoBinarioConfiguracion();
+        if (confDef == null){
+            System.out.println("Me cago en todo");
+        }
+        this.copiarConfiguracion(confDef);
     }
     
     
