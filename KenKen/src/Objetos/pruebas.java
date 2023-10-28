@@ -26,6 +26,8 @@ public class pruebas {
         */
         //Configuracion configuracion= new Configuracion(true,true,1,1);
         //Funciones.escribirArchivosBinariosConfiguracion(configuracion);
+        
+        System.out.println(Funciones.crearPDFAyuda("https://puginarug.com"));
     }
     
     

@@ -6,10 +6,24 @@ package Objetos;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 /**
  *
  * @author KendallP
@@ -58,5 +72,34 @@ public class Funciones {
             return null;
         }
         
+    }
+    
+    
+    public static String crearPDFAyuda(String link){
+        try{
+            Document document = new Document();//
+
+                    
+             
+            String destino = "ayuda.pdf";//
+            PdfWriter.getInstance(document, new FileOutputStream(destino));//
+            document.open();//
+            //codigo
+            Paragraph titulo = new Paragraph("Link a manual de usuario\n ", 
+                    FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK));
+            titulo.setAlignment(Element.ALIGN_CENTER);
+            
+            Paragraph parrafoLink = new Paragraph(link);
+
+            document.add(titulo);
+            document.add(parrafoLink);
+
+
+            document.close();// fin plantilla
+            return "PDF creado";
+
+        } catch(FileNotFoundException | DocumentException ex){
+            return "Error al crear el PDF";
+        }
     }
 }
