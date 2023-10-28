@@ -89,19 +89,24 @@ public class Funciones {
                     FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK));
             titulo.setAlignment(Element.ALIGN_CENTER);
             
-            Paragraph parrafoLink = new Paragraph("	  __^__                                      __^__\n" +
+            Paragraph parrafoLink = new Paragraph("     	  __^__                                      __^__\n" +
 "         ( ___ )------------------------------------( ___ )\n" +
 "          | / |                                      | \\ |\n" +
-"          | / |    "+link+"    | \\ |\n" +
+"          | / |                                      | \\ |\n" +
+"          | / |           "+link+"       | \\ |\n" +
+"          | / |                                      | \\ |\n" +
+"          | / |                                      | \\ |\n" +
 "          |___|                                      |___|\n" +
-"         (_____)------------------------------------(_____) ");
+"         (_____)------------------------------------(_____) ",FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK));
+            
+            
             parrafoLink.setAlignment(Element.ALIGN_CENTER);
             Paragraph deco1 = new Paragraph("════════════════════ ⋆★⋆ ════════════════════");
-            parrafoLink.setAlignment(Element.ALIGN_CENTER);
+            deco1.setAlignment(Element.ALIGN_CENTER);
             Paragraph deco2 = new Paragraph("╔════════════════════════════════════════════════════════════╗\n");
-            parrafoLink.setAlignment(Element.ALIGN_CENTER);
+            deco2.setAlignment(Element.ALIGN_CENTER);
             Paragraph deco3 = new Paragraph("╚════════════════════════════════════════════════════════════╝");
-            parrafoLink.setAlignment(Element.ALIGN_CENTER);
+            deco3.setAlignment(Element.ALIGN_CENTER);
             Paragraph deco4 = new Paragraph("_________________¶¶¶1___¶¶¶____¶¶¶1_______________\n" +
 "__________________¶¶¶____¶¶¶____1¶¶1______________\n" +
 "___________________¶¶¶____¶¶¶____¶¶¶______________\n" +
@@ -136,9 +141,8 @@ public class Funciones {
 "11_____________________________________________111\n" +
 "1¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶1\n" +
 "__¶¶111111111¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶¶111111111¶__",
-            FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK));
+            FontFactory.getFont(FontFactory.COURIER, 9, BaseColor.BLACK));
             deco4.setAlignment(Element.ALIGN_CENTER);
-            parrafoLink.setAlignment(Element.ALIGN_CENTER);
 
             
             document.add(deco1);
