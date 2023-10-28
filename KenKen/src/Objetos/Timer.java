@@ -4,11 +4,13 @@
  */
 package Objetos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Usuario
  */
-public class Timer {
+public class Timer implements Serializable{
     int hora;
     int minuto;
     int segundo;

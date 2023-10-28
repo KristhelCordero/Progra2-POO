@@ -24,7 +24,8 @@ public class pruebas {
         System.out.println("eoeo");
         bd.imprimirListaKenKen();
         */
-        
+        Configuracion configuracion= new Configuracion();
+        Funciones.escribirArchivosBinariosConfiguracion(configuracion);
     }
     
     

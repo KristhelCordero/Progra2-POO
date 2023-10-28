@@ -1,11 +1,13 @@
 
 package Objetos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author KendallP
  */
-public class Configuracion {
+public class Configuracion implements Serializable{
     
     boolean posicionBarra;//true: derecha; false: izquierda.
     boolean sonido;
@@ -32,7 +34,7 @@ public class Configuracion {
         this.posicionBarra = true;
         this.sonido = true;
         this.dificultad = 1;
-        this.reloj = 1;
+        this.reloj = 1 ;
         this.timer.resetearTimer();
     }
 
