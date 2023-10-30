@@ -58,7 +58,7 @@ public class Configuracion implements Serializable{
      *verifica si la posicion de la ventana es a la derecha o izquierda
      * true=derecha
      * false=izquierda
-     * @return
+     * @return posicionBarra
      */
     public boolean isPosicion() {
         return posicionBarra;
@@ -126,36 +126,68 @@ public class Configuracion implements Serializable{
         this.reloj = reloj;
     }
 
+    /**
+     *verifica si la posicion de la ventana es a la derecha o izquierda
+     * true=derecha
+     * false=izquierda
+     * @return posicionBarra
+     */
     public boolean isPosicionBarra() {
         return posicionBarra;
     }
-
+    /**
+     * modifica la posicion de la ventana
+     * @param posicionBarra
+     */
     public void setPosicionBarra(boolean posicionBarra) {
         this.posicionBarra = posicionBarra;
     }
 
+    /**
+     * devuelve el tiempo que lleve el timer
+     * @return
+     */
     public Timer getTimer() {
         return timer;
     }
 
+    /**
+     * modifica el timer 
+     * @param timer
+     */
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
     
-    
-    
+    /**
+     * Cambia la configuracion a una nueva configuracion completa
+     * @param posicion
+     * @param sonido
+     * @param dificultad
+     * @param reloj
+     */
     public void setConfiguracion(boolean posicion, boolean sonido, int dificultad, int reloj) {
         this.posicionBarra = posicion;
         this.sonido = sonido;
         this.dificultad = dificultad;
         this.reloj = reloj;
     }
+
+    /**
+     * toma los parametros de otra configuracion y los inserta en esta
+     * @param configuracion
+     */
     public void copiarConfiguracion(Configuracion configuracion) {
         setConfiguracion(configuracion.posicionBarra,
                 configuracion.sonido,
                 configuracion.dificultad,
                 configuracion.dificultad);
     }
+
+    /**
+     * toma la configuracion de un archivo y la introduce en el objeto como configuracion
+     * por defecto 
+     */
     public void resetear() {
         Configuracion confDef = Funciones.leerArchivoBinarioConfiguracion();
         if (confDef == null){

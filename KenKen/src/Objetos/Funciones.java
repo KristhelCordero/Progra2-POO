@@ -25,10 +25,16 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 /**
- *
+ * Clase con diversas funciones utiles par el funcionamiento de los metodos aplicados en el programa
  * @author KendallP
  */
 public class Funciones {
+
+    /**
+     * Toma un valor string y retorna su equivalente en int para el objeto de configuracion 
+     * @param sDificultad
+     * @return
+     */
     public static int pasarStringDificultadAInt(String sDificultad){
         if (sDificultad.equals("Dificil")){
             return 3;
@@ -41,6 +47,11 @@ public class Funciones {
         }else{return -1;}
     }
     
+    /**
+     * escribe en un archivo .dat un objeto configuracion del cual se va a sacar 
+     * la configuracion en un futuro por defecto
+     * @param configuracion
+     */
     public static void escribirArchivosBinariosConfiguracion(Configuracion configuracion){
         File archivo = new File("configuracion.dat");
         try{
@@ -55,6 +66,10 @@ public class Funciones {
         }
     }
     
+    /**
+     * Lee un archivo binario y extrae un objeto configuracion 
+     * @return configuracion
+     */
     public static Configuracion leerArchivoBinarioConfiguracion(){
         File archivo = new File("configuracion.dat");
         try{
@@ -74,7 +89,12 @@ public class Funciones {
         
     }
     
-    
+    /**
+     * se le ingresa un link y crea un pdf que contiene ese Link (se utiliza para generar
+     * el manual de usuario)
+     * @param link
+     * @return confirmacion
+     */
     public static String crearPDFAyuda(String link){
         try{
             Document document = new Document();//
