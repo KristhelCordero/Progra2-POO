@@ -142,10 +142,9 @@ public class Jugar extends javax.swing.JFrame {
             actualizarTimer();
         }else{
             timer.stop();
-            int dialogButton=JOptionPane.YES_NO_OPTION;
-                JOptionPane.showConfirmDialog(null,
+            int dialogButton=JOptionPane.showConfirmDialog(null,
                 "TIEMPO EXPIRADO! Desea coninuar con este mismo juego?",
-                "Confirmación",dialogButton);
+                "Confirmación",JOptionPane.YES_NO_OPTION);
             if(dialogButton==JOptionPane.YES_OPTION){
                 horas=bd.getConfiguracion().getTimer().getHora();
                 minutos=bd.getConfiguracion().getTimer().getMinuto();
@@ -1273,10 +1272,9 @@ public class Jugar extends javax.swing.JFrame {
       * @param evt 
       */
     private void jButtonReiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea terminar este juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea reiniciar este juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             desOpacarLabels();
             quitarTextoLabels();
@@ -1293,7 +1291,9 @@ public class Jugar extends javax.swing.JFrame {
                 milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
                 timer.start();
             } 
-        } 
+        }else{
+            System.out.println("Holi");
+        }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
     
     /**
@@ -1311,10 +1311,9 @@ public class Jugar extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea terminar este juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea terminar este juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             MenuPrincipal inicio = new MenuPrincipal();
             inicio.setVisible(true);
@@ -1612,10 +1611,9 @@ public class Jugar extends javax.swing.JFrame {
      * @param evt 
      */
     private void jButtonOtroJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOtroJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea empezar otro juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea comenzar otro juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             Jugar nuevoJuego=new Jugar();
             nuevoJuego.setVisible(true);
