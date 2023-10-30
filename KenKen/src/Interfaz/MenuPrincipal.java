@@ -16,7 +16,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     
     
     /**
-     * Creates new form MenuPrincipal
+     * Crea un nuevo JFrame llamado MenuPrincipal, mediante la extración de los datos del KenKen
      */
     public MenuPrincipal() {
         initComponents();
@@ -162,21 +162,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /*
+    Despliega el mnenú para configurar el juego
+    */
     private void jButtonConfigurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConfigurarActionPerformed
         Configurar menuConfigurar=new Configurar();
         menuConfigurar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonConfigurarActionPerformed
-
+    /*
+    Termina el programa
+    */
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
-
+    /*
+    Despliega el PDF que contiene el link al Manual de Usuario
+    */
     private void jButtonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAyudaActionPerformed
-        JOptionPane.showMessageDialog(null, "AYUDAAAAAAA (Inserte mensaje de generacion de PDF)");
+        JOptionPane.showMessageDialog(null, "Se ha generado el PDF de ayuda");
     }//GEN-LAST:event_jButtonAyudaActionPerformed
-
+    /*
+    Despliega el Juego 
+    */
     private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed
         if(bd.getConfiguracion().isPosicion()){
             Jugar juego= new Jugar();
@@ -188,7 +196,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButtonJugarActionPerformed
-
+    /*
+    Muestra la información sobre el programa
+    */
     private void jButtonAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAcercaDeActionPerformed
         AcercaDe menuAcercaDe=new AcercaDe();
         menuAcercaDe.setVisible(true);
