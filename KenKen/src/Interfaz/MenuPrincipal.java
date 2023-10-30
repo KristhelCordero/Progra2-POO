@@ -174,7 +174,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAyudaActionPerformed
-        JOptionPane.showMessageDialog(null, "AYUDAAAAAAA (Inserte mensaje de generacion de PDF)");
+        JOptionPane.showMessageDialog(null, Objetos.Funciones.crearPDFAyuda("https://puginarug.com"));
+        
     }//GEN-LAST:event_jButtonAyudaActionPerformed
 
     private void jButtonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugarActionPerformed

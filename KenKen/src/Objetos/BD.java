@@ -18,8 +18,9 @@ import org.xml.sax.SAXException;
 
 
 /**
- *
- * @author Usuario
+ * Es la base de datos donde se guardan los datos, configuracion y pilas de 
+ * acciones del juego
+ * @author KendallP
  */
 public class BD { 
     Configuracion configuracion= new Configuracion();
@@ -27,11 +28,19 @@ public class BD {
     PilaAcciones acciones=new PilaAcciones();
     PilaAcciones accionesDeshechas=new PilaAcciones();
      
+    /**
+     *Constructor vacio de la base de datos
+     */
     public void BD(){
-       //extraerXMLListaKenKen();
-       //generarConfiguracionDefault();
+
     }
     
+    /**
+     * Saca una lista de Objetos Ken Ken en base a la dificultas escogida en 
+     * la configuracion
+     * 
+     * @return ListaDificulta(lista de KenKen)
+     */
     public List<KenKen> sacarListaDificultad(){ //sujeto a cambios (se puede guardar en un parametro)
         List<KenKen> listaDificultad= new ArrayList<>();
         for(KenKen kenken:listaKenKen){
@@ -42,23 +51,45 @@ public class BD {
         return listaDificultad;
     }
 
+    /**
+     * retorna el objeto configuracion registrado en la base de datos
+     * @return
+     */
     public Configuracion getConfiguracion() {
         return configuracion;
     }
 
+    /**
+     * Modifica la configuracion registrada
+     * @param configuracion
+     */
     public void setConfiguracion(Configuracion configuracion) {
         this.configuracion = configuracion;
     }
 
+    /**
+     *retorna el objeto configuracion
+     * @return configuracion
+     */
     public List<KenKen> getListaKenKen() {
         return listaKenKen;
     }
 
+    /**
+     * Modifica la lista de KenKen
+     * @param listaKenKen
+     */
     public void setListaKenKen(List<KenKen> listaKenKen) {
         this.listaKenKen = listaKenKen;
     }
     
     //KENKEN
+
+    /**
+     * Saca el nodo extraido del xml y lo convierte en un objeto KenKen
+     * @param eHijo
+     * @return KenKen
+     */
     public KenKen convertirNodoEnKenKen(Element eHijo){
         KenKen kenken= new KenKen();
         NodeList nietos= eHijo.getChildNodes();
@@ -87,6 +118,9 @@ public class BD {
         return kenken;
     }
     
+    /**
+     * Toma el archivo XML y saca la lista de KenKen de él
+     */
     public void extraerXMLListaKenKen(){
         //String dirXMl=KenKen\kenken.xml;
         try{
@@ -120,6 +154,9 @@ public class BD {
         }
     }
     
+    /**
+     *Imprime la lista de KenKen
+     */
     public void imprimirListaKenKen(){
         //System.out.println("llega");
         for(KenKen kenken: listaKenKen){
@@ -127,6 +164,10 @@ public class BD {
         }
     }
     
+    /**
+     * Saca el KenKen aleatorio en bas a la dificultad
+     * @return nombre
+     */
     public String extraerKenKenActual(){
         Random rand = new Random();
         String nombre = "src/imagenes/";
@@ -141,10 +182,18 @@ public class BD {
     }
     //Configuracion
     
+    /**
+     * Genera una configuracion por defecto cuando se genera
+     */
     public void generarConfiguracionDefault(){
         configuracion.resetear();
     }
     
+    /**
+     * Busca un KenKen por nombre (codigo)
+     * @param nombre
+     * @return kenken
+     */
     public KenKen buscarKenKen(String nombre){
         nombre=nombre.substring(13, nombre.length() - 6);
         nombre+="com";
@@ -158,18 +207,37 @@ public class BD {
     }
     
     //ACCIONES
-    
+
+    /**
+     * Se añade una accion de escritura a la base de datos
+     * @param fila
+     * @param columna
+     * @param dato
+     */
     public void annadirAccionEscribir(int fila, int columna, String dato){
         Accion accion=new Accion(fila,columna,dato);
         accion.agregar=true;
         acciones.push(accion);
     }
+
+    /**
+     * Se añade una accion de borrado a la base de datos
+     * @param fila
+     * @param columna
+     * @param dato
+     */
     public void annadirAccionBorrar(int fila, int columna, String dato){
         Accion accion=new Accion(fila,columna,dato);
         accion.agregar=false;
         acciones.push(accion);
     }
     
+    /**
+     * elimina la ultima accion de las acciones hechas y la retorna, ademas de guardarla en 
+     * las acciones desechas 
+     * @param accionDesecha
+     * @return accion
+     */
     public Accion deshacerAccion(Accion accionDesecha){
         if(!acciones.empty()){
             Accion accion = acciones.pop();
@@ -178,6 +246,13 @@ public class BD {
         }
         return null;
     }
+
+    /**
+     * Elimina la ultima accion de las acciones desechas y la registra en las 
+     * acciones hechas nuevamente
+     * @param accionHecha
+     * @return accion
+     */
     public Accion rehacerAccion(Accion accionHecha){
         if(!accionesDeshechas.empty()){
             Accion accion = accionesDeshechas.pop();
@@ -187,12 +262,21 @@ public class BD {
         return null;
     }
     
+    /**
+     * funciona como peek de las acciones hechas
+     * @return accion (la ultima accion hecha)
+     */
     public Accion mostrarUltimaAccionHecha(){
         if (!acciones.empty()){
             return acciones.peek();
         }
         return null;
     }
+
+    /**
+     * peek de pila de acciones desechas
+     * @return
+     */
     public Accion mostrarUltimaAccionDeshecha(){
         if (!accionesDeshechas.empty()){
             return accionesDeshechas.peek();
@@ -200,6 +284,9 @@ public class BD {
         return null;
     }
     
+    /**
+     * elimina todas las acciones de las pilas de acciones
+     */
     public void limpiarPilas(){
         acciones.clear();
         accionesDeshechas.clear();
