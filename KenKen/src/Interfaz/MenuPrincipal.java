@@ -5,15 +5,10 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author krisc
+ * @author Kristhel Cordero y Kendall Piedra
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-
-    /**
-     *
-     */
     public static Objetos.BD bd = new Objetos.BD();
-    
     
     /**
      * Crea un nuevo JFrame llamado MenuPrincipal, mediante la extración de los datos del KenKen

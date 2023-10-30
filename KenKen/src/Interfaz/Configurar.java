@@ -7,12 +7,12 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author krisc
+ * @author Kristhel Cordero y Kendall Piedra
  */
 public class Configurar extends javax.swing.JFrame {
 
     /**
-     * Creates new form Configurar
+     * Crea un nuevo JFrame llamado Configurar
      */
     public Configurar() {
         initComponents();
@@ -336,7 +336,11 @@ public class Configurar extends javax.swing.JFrame {
     private void jRBmedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRBmedioActionPerformed
         
     }//GEN-LAST:event_jRBmedioActionPerformed
-
+    
+    /**
+     * Guarda la configuración con las especificaciones colocadas por el usuario
+     * @param evt 
+     */
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         boolean posicion, sonido;
         int dificultad, reloj;
@@ -362,7 +366,11 @@ public class Configurar extends javax.swing.JFrame {
         bd.setConfiguracion(config);
         JOptionPane.showMessageDialog(null, "Su configuración ha sido guardada");
     }//GEN-LAST:event_jButtonAceptarActionPerformed
-
+    
+    /**
+     * Regresa al menú principal
+     * @param evt 
+     */
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
         MenuPrincipal regresar=new MenuPrincipal();
         regresar.setVisible(true);

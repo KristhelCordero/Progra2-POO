@@ -3,7 +3,7 @@ package Interfaz;
 
 /**
  *
- * @author Usuario
+ * @author Kristhel Cordero y Kendall Piedra
  */
 public class AcercaDe extends javax.swing.JFrame {
 
