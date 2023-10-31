@@ -175,7 +175,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     Despliega el PDF que contiene el link al Manual de Usuario
     */
     private void jButtonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAyudaActionPerformed
-        JOptionPane.showMessageDialog(null, Objetos.Funciones.crearPDFAyuda("https://puginarug.com"));
+        JOptionPane.showMessageDialog(null, Objetos.Funciones.crearPDFAyuda("https://drive.google.com/file/d/1hXmuQdb8n4e8fVQu7sB02VG9SByum9x4/view?usp=sharing"));
     }//GEN-LAST:event_jButtonAyudaActionPerformed
     /*
     Despliega el Juego 
