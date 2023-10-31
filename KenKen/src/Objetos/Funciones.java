@@ -71,12 +71,10 @@ public class Funciones {
         File archivo = new File("configuracion.dat");
         try{
             FileInputStream fis = new FileInputStream(archivo);
-            System.out.println("Lo encuentra");
             ObjectInputStream ois;
             ois = new ObjectInputStream(fis);
-            System.out.println("no se ha caido");
             Configuracion configuracion = (Configuracion) ois.readObject();
-            System.out.println("magia");
+            System.out.println("Archivo 'Configuracion.dat' leido con exito");
             return configuracion;
         }catch (Exception e){ 
             System.out.println("Error");
