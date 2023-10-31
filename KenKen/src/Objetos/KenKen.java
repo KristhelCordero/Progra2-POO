@@ -103,7 +103,7 @@ public class KenKen {
         int valor = Integer.parseInt(partes[0].trim());
         int fila = Integer.parseInt(partes[2].trim());        
         int columna = Integer.parseInt(partes[3].trim());
-        System.out.println(valor+"\n"+fila+"\n"+columna);
+        //System.out.println(valor+"\n"+fila+"\n"+columna);
 
         solucion[fila-1][columna-1]=valor;
     }

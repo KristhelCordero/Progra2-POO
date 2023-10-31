@@ -23,7 +23,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author krisc
+ * @author Kristhel Cordero y Kendall Piedra
  */
 public class Jugar extends javax.swing.JFrame {
     private JLabel[][] matrizDeLabels;
@@ -35,7 +35,8 @@ public class Jugar extends javax.swing.JFrame {
     private int segundos=bd.getConfiguracion().getTimer().getSegundo();
     private int milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
     /**
-     * Creates new form Jugar
+     * Crea un nuevo JFrame llamado Jugar, con los botoens debidamente apagados y las 
+     * especificaciones acordes a la configuración del usuario
      */
     public Jugar() {
         initComponents();
@@ -66,6 +67,9 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Actualiza el cronómetro cada segundo
+     */
     private void actualizarCronometro(){
         milisegundos++;
         if(milisegundos>=67){
@@ -85,6 +89,9 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Actualiza el timer cada segundo
+     */
     private void actualizarTimer(){
         if (milisegundos == 0) {
             if (segundos == 0) {
@@ -109,28 +116,35 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
-    
+    /**
+     * Muestra en pantalla cada segundo, los segundos minutos y horas correspondientes
+     */
     private void actualizarLabel(){
         String cronometro = horas+" : "+ minutos+" : "+ segundos;
         jLabelTiempo.setText(cronometro);
         this.repaint();
     }
     
+    /**
+     * Función que ejecutará el cronometro constantemente
+     */
     private void iniciarCronometro(){
         actualizarCronometro();
         actualizarLabel();
     }
     
+    /**
+     * Función que ejecutará el timer constantemente
+     */
     private void iniciarTimer(){
         if(!finalizadoTimer){
             actualizarLabel();
             actualizarTimer();
         }else{
             timer.stop();
-            int dialogButton=JOptionPane.YES_NO_OPTION;
-                JOptionPane.showConfirmDialog(null,
+            int dialogButton=JOptionPane.showConfirmDialog(null,
                 "TIEMPO EXPIRADO! Desea coninuar con este mismo juego?",
-                "Confirmación",dialogButton);
+                "Confirmación",JOptionPane.YES_NO_OPTION);
             if(dialogButton==JOptionPane.YES_OPTION){
                 horas=bd.getConfiguracion().getTimer().getHora();
                 minutos=bd.getConfiguracion().getTimer().getMinuto();
@@ -145,6 +159,9 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+    * Función que reinicia el cronómetro colocándolo en 0
+    */
     private void reiniciarCronometro(){
         cronometro.stop();
         milisegundos=0;
@@ -152,7 +169,12 @@ public class Jugar extends javax.swing.JFrame {
         minutos=0;
         horas=0;
     }
-    
+
+    /**
+     * Función que configura el Ken Ken respecto a lo establecido
+     * @param root
+     */
+
     public void setImageLabel(String root){
         ImageIcon imagen= new ImageIcon(root);
         Icon icono= new ImageIcon(imagen.getImage().getScaledInstance(jLabelKenKen.getWidth(), jLabelKenKen.getHeight(), Image.SCALE_DEFAULT));
@@ -160,6 +182,9 @@ public class Jugar extends javax.swing.JFrame {
         this.repaint();
     }
     
+    /*
+    Función que crea una matriz de JLabels
+    */
     public void crearMatrizLabels(){
         matrizDeLabels[0][0]=jLabel_1_1;
         matrizDeLabels[0][1]=jLabel_1_2;
@@ -199,6 +224,11 @@ public class Jugar extends javax.swing.JFrame {
         matrizDeLabels[5][5]=jLabel_6_6;
     }
     
+    /**
+     *  Funcion: Introduce un número determinado en la casilla seleccionada 
+     * por el jugador y muestra en pantalla el número 
+     * @param num
+     */
     public void introducirNumeroEnCasilla(int num) {
         String texto;
         for (int i=0;i<6;i++) {
@@ -213,6 +243,9 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Función que reproduce la música al final de una partida exitosa
+     */
     public void playMusic(){
         try{
             File path= new File("src/Interfaz/aplausos.wav");
@@ -230,6 +263,9 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Elimina un número de la casilla seleccionada, la deja en blanco
+     */
     public void borrarNumero(){
         String texto="";
         for (int i=0;i<6;i++) {
@@ -244,6 +280,11 @@ public class Jugar extends javax.swing.JFrame {
         this.repaint();
     }
     
+    /**
+     *  Verifica si el jugador colocó todos los números correctamente en el Ken Ken
+     * @param matriz
+     * @return boolean true || false
+     */
     public static boolean todosTrue(boolean[][] matriz) {
         for (boolean[] fila : matriz) {
             for (boolean valor : fila) {
@@ -255,6 +296,10 @@ public class Jugar extends javax.swing.JFrame {
         return true;
     }
     
+    /**
+     * Define el color que tendrá cada casilla del KenKen al momento de ser 
+     * seleccionada por el usuario
+     */
     public void definirColorLabels() {
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
@@ -264,6 +309,9 @@ public class Jugar extends javax.swing.JFrame {
         this.repaint();
     }
     
+    /**
+     * Deselecciona una casilla del KenKen
+     */
     public void desOpacarLabels(){
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
@@ -275,6 +323,9 @@ public class Jugar extends javax.swing.JFrame {
         this.repaint();
     }
     
+    /**
+     * Vacía todos los valores que hayan en las casillas del juego
+     */
     public void quitarTextoLabels(){
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
@@ -284,6 +335,10 @@ public class Jugar extends javax.swing.JFrame {
         this.repaint();
     }
     
+    /**
+     *  Revisa que una de las casillas este seleccionada
+     * @return true || false
+     */
     public boolean hayCasillaSeleccionada(){
         for (JLabel[] filaLabel : matrizDeLabels) {
             for (JLabel label : filaLabel) {
@@ -295,6 +350,11 @@ public class Jugar extends javax.swing.JFrame {
         return false;
     }
     
+    /**
+     *  verifica que el juego se haya iniciado y que se haya seleccionado una 
+     * casilla 
+     * @return true || false
+     */
     public boolean validarCondiciones(){
         if(!iniciado){
             JOptionPane.showMessageDialog(null, """
@@ -311,6 +371,10 @@ public class Jugar extends javax.swing.JFrame {
         }
     }
     
+    /**
+     *  Evalúa que el Ken Ken contenga los valores correctos en las posiciones correctas
+     * @param solucion
+     */
     public void validarKenKen(boolean[][] solucion){
         for (int i=0; i<6; i++) {
             for (int j=0; j<6; j++) {
@@ -1203,12 +1267,14 @@ public class Jugar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     /**
+      * Boton que se encarga de reiniciar el KenKen actual
+      * @param evt 
+      */
     private void jButtonReiniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReiniciarJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea terminar este juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea reiniciar este juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             desOpacarLabels();
             quitarTextoLabels();
@@ -1225,27 +1291,42 @@ public class Jugar extends javax.swing.JFrame {
                 milisegundos=bd.getConfiguracion().getTimer().getMilisegundo();
                 timer.start();
             } 
-        } 
+        }else{
+            System.out.println("Holi");
+        }
     }//GEN-LAST:event_jButtonReiniciarJuegoActionPerformed
-
+    
+    /**
+     * Introduce el número indicado por el botón en la casilla seleccionada
+     * @param evt 
+     */
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (validarCondiciones()){
             introducirNumeroEnCasilla(4);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    
+    /**
+     * Termina el juego y regresa al menú principal
+     * @param evt 
+     */
     private void jButtonTerminarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerminarJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea terminar este juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea terminar este juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             MenuPrincipal inicio = new MenuPrincipal();
             inicio.setVisible(true);
             this.dispose(); 
         }
     }//GEN-LAST:event_jButtonTerminarJuegoActionPerformed
-
+    
+    /**
+     * Al hacer click sobre la casilla la señala con un color distinto
+     * Esto aplica para todas las funciones que se presentan debajo de esta
+     * Hasta que se señale lo contrario
+     * @param evt 
+     */
     private void jLabel_1_1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_1_1MouseClicked
         desOpacarLabels();
         jLabel_1_1.setOpaque(true);
@@ -1461,7 +1542,11 @@ public class Jugar extends javax.swing.JFrame {
         jLabel_6_6.setOpaque(true);
         this.repaint();
     }//GEN-LAST:event_jLabel_6_6MouseClicked
-
+    
+    /**
+     * Inicia el juego, habilitando todas las opciones
+     * @param evt 
+     */
     private void jButtonIniciarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarJuegoActionPerformed
         if(bd.getConfiguracion().getReloj()==1){
             cronometro.start();
@@ -1475,7 +1560,13 @@ public class Jugar extends javax.swing.JFrame {
         jButtonOtroJuego.setEnabled(true);
         jButtonIniciarJuego.setEnabled(false);
     }//GEN-LAST:event_jButtonIniciarJuegoActionPerformed
-
+    
+    /**
+     * Introduce el número indicado por el botón en la casilla correspondiente
+     * Esta descripción aplica para las funciones colocadas posteriores a esta
+     * hasta que se indique lo contrario
+     * @param evt 
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (validarCondiciones()){
             introducirNumeroEnCasilla(1);
@@ -1505,23 +1596,35 @@ public class Jugar extends javax.swing.JFrame {
             introducirNumeroEnCasilla(6);
         }
     }//GEN-LAST:event_jButton6ActionPerformed
-
+    
+    /**
+     * Borra el contenido de la casilla seleccionada por el jugador
+     * @param evt 
+     */
     private void jButtonBorradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorradorActionPerformed
         borrarNumero();
     }//GEN-LAST:event_jButtonBorradorActionPerformed
-
+    
+    /**
+     * Inicia un KenKen nuevo, hay posibilidades de que salga el mismo, al ser la probabilidad
+     * completamente aleatoria
+     * @param evt 
+     */
     private void jButtonOtroJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOtroJuegoActionPerformed
-        int dialogButton=JOptionPane.YES_NO_OPTION;
-        JOptionPane.showConfirmDialog(null,
-                "Está seguro que desea empezar otro juego?",
-                "Confirmación",dialogButton);
+        int dialogButton = JOptionPane.showConfirmDialog(null,
+        "Está seguro que desea comenzar otro juego?",
+        "Confirmación", JOptionPane.YES_NO_OPTION);
         if(dialogButton==JOptionPane.YES_OPTION){
             Jugar nuevoJuego=new Jugar();
             nuevoJuego.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_jButtonOtroJuegoActionPerformed
-
+    
+    /**
+     * Evalua si el juego completado (o no) por el jugador tiene las respuestas correctas
+     * @param evt 
+     */
     private void jButtonValidarJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarJuegoActionPerformed
         boolean[][] solucion;
         solucion=bd.buscarKenKen(kenken).validarSolucion(matrizDeLabels);
@@ -1552,7 +1655,11 @@ public class Jugar extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
-
+    
+    /**
+     * Deshace una acción llevada a cabo por el jugador
+     * @param evt 
+     */
     private void jButtonUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUndoActionPerformed
         Accion accionDeshecha=bd.mostrarUltimaAccionHecha();
         if (accionDeshecha!=null){
@@ -1565,7 +1672,11 @@ public class Jugar extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButtonUndoActionPerformed
-
+    
+    /**
+     * Rehace una acción llevada a cabo por el jugador
+     * @param evt 
+     */
     private void jButtonRedoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRedoActionPerformed
         Accion accionHecha=bd.mostrarUltimaAccionDeshecha();
         if(accionHecha!=null){
