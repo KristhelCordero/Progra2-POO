@@ -104,19 +104,14 @@ public class Funciones {
                     FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18, BaseColor.BLACK));
             titulo.setAlignment(Element.ALIGN_CENTER);
             
-            Paragraph parrafoLink = new Paragraph("     	  __^__                                      __^__\n" +
-"         ( ___ )------------------------------------( ___ )\n" +
-"          | / |                                      | \\ |\n" +
-"          | / |                                      | \\ |\n" +
-"          | / |           "+link+"       | \\ |\n" +
-"          | / |                                      | \\ |\n" +
-"          | / |                                      | \\ |\n" +
-"          |___|                                      |___|\n" +
-"         (_____)------------------------------------(_____) ",FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK));
+            Paragraph parrafoLink = new Paragraph("____\n" +
+"_(____)_\n" +
+"___ooO_(_o__o_)_Ooo___\n" +
+link,FontFactory.getFont(FontFactory.COURIER, 11, BaseColor.BLACK));
             
             
             parrafoLink.setAlignment(Element.ALIGN_CENTER);
-            Paragraph deco1 = new Paragraph("════════════════════ ⋆★⋆ ════════════════════");
+            Paragraph deco1 = new Paragraph("____________________________ ⋆★⋆ ____________________________");
             deco1.setAlignment(Element.ALIGN_CENTER);
             Paragraph deco2 = new Paragraph("╔════════════════════════════════════════════════════════════╗\n");
             deco2.setAlignment(Element.ALIGN_CENTER);
