@@ -344,23 +344,23 @@ public class Configurar extends javax.swing.JFrame {
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         boolean posicion, sonido;
         int dificultad, reloj;
-        if(jRBfacil.isSelected()){
-           dificultad=1;
+        if(jRBDificil.isSelected()){
+           dificultad=3;
         }else if (jRBmedio.isSelected()){
             dificultad=2;
-        }else{dificultad=3;}
+        }else{dificultad=1;}
         posicion = !jRBIzquierda.isSelected();
         sonido= !jRBno.isSelected();
         int hora=0, minutos=0, segundos=0, milisegundos=0;
-        if (jRBcronometro.isSelected()){
-            reloj=1;    
+        if (jRBNO.isSelected()){
+            reloj=3;    
         }else if(jRBtimer.isSelected()){
             reloj=2;
             hora=Integer.parseInt(jComboBoxHora.getSelectedItem().toString());
             minutos=Integer.parseInt(jComboBoxMinutos.getSelectedItem().toString());
             segundos=Integer.parseInt(jComboBoxSegundos.getSelectedItem().toString());
             milisegundos=67;
-        }else{reloj=3;}
+        }else{reloj=1;}
         Objetos.Timer timer= new Objetos.Timer(hora,minutos,segundos,milisegundos);
         Configuracion config=new Configuracion(posicion, sonido, dificultad, reloj, timer);
         bd.setConfiguracion(config);

@@ -46,7 +46,11 @@ public class AcercaDe extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ACERCA DE");
 
+        Regresar.setBackground(new java.awt.Color(183, 209, 169));
+        Regresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Regresar.setForeground(new java.awt.Color(62, 75, 62));
         Regresar.setText("Regresar");
+        Regresar.setBorder(null);
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
