@@ -1645,6 +1645,7 @@ public class Jugar extends javax.swing.JFrame {
             "HAY ERRORES EN EL JUEGO! Desea corregirlos?", 
             "Confirmación", JOptionPane.YES_NO_OPTION);
             if (dialogResult == JOptionPane.YES_OPTION) {
+                iniciado=true;
                 desOpacarLabels();
                 definirColorLabels();
                 if(bd.getConfiguracion().getReloj()==1){
@@ -1652,6 +1653,8 @@ public class Jugar extends javax.swing.JFrame {
                 }else if(bd.getConfiguracion().getReloj()==2){
                     timer.start();
                 }
+            }else{
+                iniciado=false;
             }
         }
     }//GEN-LAST:event_jButtonValidarJuegoActionPerformed
